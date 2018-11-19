@@ -4,7 +4,6 @@ class LaundromatsController < ApplicationController
 
   def show
     @laundromat = Laundromat.find(params[:id])
-
   end
 
   def destroy
