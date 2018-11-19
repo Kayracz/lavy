@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   get 'orders/new'
   get 'orders/create'
   devise_for :users
-  root to: 'laundries#index'
+  root to: 'laundromats#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :laundries, only: [:show] do
+  resources :laundromats, only: [:show, :destroy] do
     resources :orders, only: [:new, :create]  # Never need a double nesting
   end
 
