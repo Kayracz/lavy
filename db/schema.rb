@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_175325) do
+ActiveRecord::Schema.define(version: 2018_11_19_191219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_175325) do
     t.integer "bags_per_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_175325) do
     t.integer "number_of_bags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
     t.index ["laundromat_id"], name: "index_orders_on_laundromat_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
