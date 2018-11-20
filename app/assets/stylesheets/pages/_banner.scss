@@ -1,7 +1,8 @@
 #bubble-container {
-  margin-top: 20px;
+  margin-bottom: 1em;
   display: flex;
   justify-content: center;
+  background-size: cover !important;
 }
 
 
@@ -32,5 +33,64 @@
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
   background-color: white;
-  img { width: 100%; height: auto; }
+  img { width: 104%; height: auto; }
+  // left: 150px;
+  top: 529px;
+}
+
+
+.banner {
+      padding: 2em 1em 1em 1em;
+  color: white;
+  text-align: center;
+  height: 60vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content{
+     position: absolute;
+   height: 60vh;
+   display: flex !important;
+   flex-direction: column;
+   justify-content: space-between;
+
+  h1{
+   font-family: Raleway;
+   font-style: normal;
+   font-weight: bold;
+   line-height: normal;
+   font-size: 60px;
+   text-align: left;
+   left: 75px;
+   top: 200px;
+   border-color: black;
+
+   color: #FFFFFF;
+   // border: 1px solid #000;
+   text-shadow: 3px 1px rgba(1, 1, 1, 1)
+ }
+}
+
+.search{
+
+  text-align:center;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 24px;
+  color: white;
+}
+
+.searchTerm {
+  font-size: 24px;
+}
+
+.searchButton{
+  background-color: #005C66;
 }
