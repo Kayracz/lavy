@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :orders_to_deliver, class_name: "Order", foreign_key: "delivery_guy_id"
 
 
-  validates :name, :phone_number, :role, :address, presence: true
+  validates :name, :address, presence: true
   validates :name, uniqueness: true
 
   mount_uploader :photo, PhotoUploader # copied this line from boat model
