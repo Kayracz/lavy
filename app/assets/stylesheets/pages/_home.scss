@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+
+.banner-subtitle {
+  margin-bottom: 60px;
+
+}
+
+.works {
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.process-card {
+  text-align: center;
+  div {
+    height: 175px;
+  }
+  p {
+    margin-bottom: 60px;
+  }
+}
+

@@ -5,10 +5,43 @@
 <!-- Banner -->
 <%= render "pages/banner" %>
 
-<!-- Container How it works-->
+<!-- Information -->
+<h1 class="text-center">How it works</h1>
+<p class="text-center banner-subtitle">We collect, wash and deliver your laundry and dry cleaning in 24 hours.</p>
+
+<div class="container">
+  <div class="row">
+    <!-- FIRST ELEMENT -->
+    <div class="col-xs-12 col-sm-12 col-md-4 process-card">
+      <div>
+        <%= image_tag 'pickup.svg' %>
+      </div>
+      <h2>Pick- Up</h2>
+      <p>We collect, wash and deliver your laundry and dry cleaning in 24 hours. </p>
+    </div>
+    <!-- SECOND ELEMENT -->
+    <div class="col-xs-12 col-sm-12 col-md-4 process-card">
+      <div>
+        <%= image_tag 'adriver.svg' %>
+      </div>
+      <h2>A Driver arrives</h2>
+      <p>Easily choose collection & delivery times at your convenience, including late evenings and weekends. </p>
+    </div>
+    <!-- THIRD ELEMENT -->
+    <div class="col-xs-12 col-sm-12 col-md-4 process-card">
+      <div>
+        <%= image_tag 'clean.svg' %>
+      </div>
+      <h2>Clean Laundry</h2>
+      <p>Our drivers bring your items to our cleaning partners, where we take utmost care to ensure great results</p>
+    </div>
+  </div>
+</div>
 
 
 <!-- Container Video -->
+
+
 
 <!-- Footer -->
 <%= render "shared/footer" %>
