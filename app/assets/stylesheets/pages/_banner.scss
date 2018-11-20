@@ -89,19 +89,33 @@ html, body
 {
   display: table-cell;
   vertical-align: middle;
+  input
+  {
+   color: white;
+   font-family: Nunito;
+   padding: 11px;
+   margin: -1px;
+   margin-top: -53px;
+   border: 0;
+   background-color: transparent;
+   opacity: 20px;
+
+ }
+
+ button{
+   color: white;
+   font-family: Nunito;
+   padding: 13px;
+   margin: -5px;
+   margin-top: -48px;
+   border: 0;
+   background-color: transparent;
+    width: 77px;
+    height: 99px;
+    cursor: pointer;
+ }
 }
 
-input, button
-{
- color: white;
- font-family: Nunito;
- padding: 11px;
- margin: -1px;
- margin-top: -53px;
- border: 0;
- background-color: transparent;
-
-}
 
 #cover
 {
