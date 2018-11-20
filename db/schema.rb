@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_11_19_210538) do
-
+ActiveRecord::Schema.define(version: 2018_11_20_142533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +23,8 @@ ActiveRecord::Schema.define(version: 2018_11_19_210538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
+    t.float "lat"
+    t.float "long"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -38,7 +38,12 @@ ActiveRecord::Schema.define(version: 2018_11_19_210538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "amount_cents", default: 0, null: false
+    t.bigint "pick_up_guy_id"
+    t.bigint "delivery_guy_id"
+    t.string "pick_up_address"
+    t.index ["delivery_guy_id"], name: "index_orders_on_delivery_guy_id"
     t.index ["laundromat_id"], name: "index_orders_on_laundromat_id"
+    t.index ["pick_up_guy_id"], name: "index_orders_on_pick_up_guy_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -64,9 +69,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_210538) do
     t.string "phone_number"
     t.boolean "role"
     t.string "address"
-    t.bigint "laundromat_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["laundromat_id"], name: "index_users_on_laundromat_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

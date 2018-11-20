@@ -13,9 +13,12 @@ class User < ApplicationRecord
   # has_many :reviews do we need this, we would need to add through orders?
 
   has_many :orders
-  has_many :orders_to_deliver, through: :laundromats, source: :order
+  has_many :orders_to_pick_up, class_name: "Order", foreign_key: "pick_up_guy_id"
+  has_many :orders_to_deliver, class_name: "Order", foreign_key: "delivery_guy_id"
+
 
   validates :name, :phone_number, :role, :address, presence: true
+  validates :name, uniqueness: true
 
-  # mount_uploader :photo, PhotoUploader # copied this line from boat model
+  mount_uploader :photo, PhotoUploader # copied this line from boat model
 end
