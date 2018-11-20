@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-  def stars
+  def index
   end
 
-  def description
+  def show
   end
 
   def order_id
