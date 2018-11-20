@@ -1,31 +1,44 @@
 
 <!-- BANNER -->
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'bannerpic.jpeg' %>');">
-  <div class="banner-content">
-    <div>
-      <h1>Laundry pick up & delivery</h1>
-    </div>
-    <!-- Bubble -->
-    <!--search bar -->
+      <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'bannerpic.jpeg' %>');">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
 
-    <div class="wrap">
-     <div class="search">
-      <input type="text" class="searchTerm" placeholder="Type your location">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
+        <div id="banner-title">
+          <div>
+            <h1>Laundry pick up & delivery</h1>
+          </div>
+
+          <div>
+            <div class="bubble" id="bubble-container" style="background-image: url('<%= image_path 'bubble.png' %>');">
+              <a href="">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+         <div id="cover">
+  <form method="get" action="">
+    <div class="tb">
+      <div class="td"><input type="text" placeholder="Search" required></div>
+      <div class="td" id="s-cover">
+        <button type="submit">
+          <div id="s-circle"></div>
+          <span></span>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="container-fluid" >
-    <div class="bubble" id="bubble-container" style="background-image: url('<%= image_path 'bubble.png' %>');">
-      <a href="">
-      </a>
+  </form>
+</div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
-</div>
-
 
 
 
