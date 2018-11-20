@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
-  def stars:integer
+  def stars
   end
 
   def description
   end
 
-  def order_id:references
+  def order_id
   end
 end
