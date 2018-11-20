@@ -2,7 +2,7 @@
 
 .banner-subtitle {
   margin-bottom: 60px;
-
+  color: black;
 }
 
 .works {
@@ -16,8 +16,50 @@
   div {
     height: 175px;
   }
+
   p {
-    margin-bottom: 60px;
+    margin-bottom: 10px;
   }
+
+  h2{
+   color: #005C66;
+ }
 }
+
+.text-center{
+  margin-top: 50px;
+
+  h1 {
+   color: #005C66;
+ }
+}
+
+
+  .header-container{
+    width: 100% !important;
+    height: auto !important;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    padding: 20px;
+}
+
+    video-container{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+     .video{
+     position: absolute;
+     z-index: -1;
+     opacity: 0.78;
+     widows: 100%;
+     width: 100% !important;
+     height: auto !important;
+     margin:0 auto;
+ }
 
