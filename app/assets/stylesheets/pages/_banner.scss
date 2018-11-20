@@ -71,13 +71,6 @@
   outline: none;
 }
 
-html, body
-{
-  height: 100%;
-  min-height: 100%;
-}
-
-
 
 .tb
 {
@@ -89,19 +82,33 @@ html, body
 {
   display: table-cell;
   vertical-align: middle;
+  input
+  {
+   color: white;
+   font-family: Nunito;
+   padding: 11px;
+   margin: -1px;
+   margin-top: -53px;
+   border: 0;
+   background-color: transparent;
+   opacity: 20px;
+
+ }
+
+ button{
+   color: white;
+   font-family: Nunito;
+   padding: 13px;
+   margin: -5px;
+   margin-top: -48px;
+   border: 0;
+   background-color: transparent;
+    width: 77px;
+    height: 99px;
+    cursor: pointer;
+ }
 }
 
-input, button
-{
- color: white;
- font-family: Nunito;
- padding: 11px;
- margin: -1px;
- margin-top: -53px;
- border: 0;
- background-color: transparent;
-
-}
 
 #cover
 {
@@ -116,13 +123,10 @@ input, button
   background-color: #005C66;
   border-radius: 20px;
   box-shadow: 0 10px 40px #005C66, 0 0 0 20px #ffffffeb;
-}
-
 form
 {
   height: 96px;
 }
-
 input[type="text"]
 {
   width: 100%;
@@ -130,19 +134,18 @@ input[type="text"]
   font-size: 60px;
   line-height: 1;
 }
-
 input[type="text"]::placeholder
 {
   color: white;
   font-size: 30px;
 }
+}
+
 
 #s-cover
 {
   width: 1px;
   padding-left: 35px;
-}
-
 button
 {
   position: relative;
@@ -151,6 +154,8 @@ button
   height: 96px;
   cursor: pointer;
 }
+}
+
 
 #s-circle
 {
@@ -180,6 +185,7 @@ button span
   transform: rotateZ(52deg);
   transition: 0.5s ease all;
 }
+
 
 button span:before, button span:after
 {
@@ -231,5 +237,7 @@ button span:before, button span:after
   width: 40px;
   background-color: #fff;
 }
+
+
 
 
