@@ -31,6 +31,13 @@ def update
  authorize @order
 end
 
+def destroy
+  @order = Order.find(params[:id])
+  @order.reviews.destroy_all  # We need to destroy all the children before we destroy the parent
+  @order.destroy              # Otherwise, we'll have references in the children to a parent id which doesn't exist
+  redirect_to dashboard_path
+end
+
 private
 
 def orders_params

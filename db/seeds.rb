@@ -42,14 +42,18 @@ Laundromat.all.each_with_index do |laundromat, i|
 end
 
 User.all.each_with_index do |user, i|
-  order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today, delivery_time: Date.today + 2, pick_up_address: "#{i}-pick-up-address", delivery_address: "#{i}-delivery-address", number_of_bags: i+1)
-  order.save!
+  5.times do  |j|
+    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), pick_up_address: "#{i}-pick-up-address", delivery_address: "#{i}-delivery-address", number_of_bags: i+1)
+    order.save!
+  end
 end
 
 Order.all.each_with_index do |order|
   review = Review.new(order_id: order.id, stars: 1+rand(5), description: Faker::MostInterestingManInTheWorld.quote)
   review.save!
 end
+
+
 
 
 # 2.times do |i|
