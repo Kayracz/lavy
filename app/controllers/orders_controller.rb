@@ -1,12 +1,13 @@
 class OrdersController < ApplicationController
-  def new
-    @laundromat = Laundromat.find(params[:laundromat_id])
-    @order = Order.new
-    authorize @order
-  end
 
   def show
     @order = Order.find(params[:id])
+    authorize @order
+  end
+
+  def new
+    @laundromat = Laundromat.find(params[:laundromat_id])
+    @order = Order.new
     authorize @order
   end
 
