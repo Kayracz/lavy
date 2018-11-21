@@ -1,5 +1,5 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!-- <h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p> -->
 
 <div class="wrapper">
 
@@ -54,7 +54,7 @@
 
           <td><%= order.laundromat.phone_number %></td>
           <td><%= order.number_of_bags %></td>
-          <td><%= order.amount_cents %></td>
+          <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.pick_up_address %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
@@ -107,7 +107,7 @@
           <td><%= order.laundromat.name %></td>
           <td><%= order.user.name %></td>
           <td><%= order.number_of_bags %></td>
-          <td><%= order.amount_cents %></td>
+          <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.pick_up_address %></td>
           <td>Pending</td>
@@ -146,7 +146,7 @@
           <td><%= order.laundromat.name %></td>
           <td><%= order.user.name %></td>
           <td><%= order.number_of_bags %></td>
-          <td><%= order.amount_cents %></td>
+          <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.delivery_address %></td>
           <td>Pending</td>
