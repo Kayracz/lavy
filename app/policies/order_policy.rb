@@ -5,23 +5,23 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
-  def new
+  def new?
+    true
+  end
+
+  def show?
     record.user == user
   end
 
-  def show
+  def create?
     record.user == user
   end
 
-  def create
+  def edit?
     record.user == user
   end
 
-  def edit
-    record.user == user
-  end
-
-  def update
+  def update?
     record.user == user
   end
 

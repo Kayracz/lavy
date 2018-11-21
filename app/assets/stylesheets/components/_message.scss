@@ -1,0 +1,90 @@
+.message {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  border: 1px solid rgba(0,92,102,0.4);
+  border-radius: 25px;
+  box-shadow: 2px 2px 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.message-body {
+  flex-grow: 1;
+}
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.message-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.message-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.message-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.message-body p {
+  margin: 6px 0;
+}
+.message-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: lightgrey;
+}
+.main-container {
+  margin: 0 auto;
+  display: flex;
+  width: 1000px;
+}
+#sidebar {
+  flex: 0 0 200px;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+  h3 {
+    a {
+      color: rgba(0,92,102,1);
+    }
+  }
+}
+.botton-right {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(220,220,220)
+}
+.checked {
+    color: orange;
+}
+.laundry-pic {
+  width: 100px;
+  border-radius: 20px;
+}
+.message-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 10;
+}
