@@ -5,7 +5,8 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def show
-    record.user == user
+  def show?
+    # record.user == user
+    true
   end
 end
