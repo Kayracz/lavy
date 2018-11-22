@@ -6,6 +6,7 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 62px;
   h1 {
     font-size: 60px;
     text-align: left;
@@ -161,14 +162,37 @@
 }
 
 .searchbar{
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 49px;
-    padding-right: 11px;
-    padding-bottom: -22px;
-    margin: 34px;
-    border-radius: 20px;
+  margin-top: 100px;
+  width: 100%;
+  .input-group {
+    width: 100%;
   }
+  .input-group form {
+    width: 80%;
+  }
+}
+
+#laundromat_address {
+  height: 55px;
+  border-radius: 25px 0 0px 25px;
+}
+
+#submit-address-btn {
+  height: 55px;
+  border-radius: 0 25px 25px 0;
+  border: 1px solid white;
+  border-left: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+  #submit-address-btn {
+    width: 59px;
+  }
+}
+
+
+
 // #s-cover
 // {
 //   width: 1px;
