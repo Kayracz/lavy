@@ -30,7 +30,7 @@ puts "Create new seeds"
     # t.string "delivery_address"
     # t.integer "number_of_bags"
 
-2.times do |i|
+20.times do |i|
   laundromat = Laundromat.new(name: "#{i}-Laundromat", address: "#{i}-address", phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
   laundromat.save!
 end
