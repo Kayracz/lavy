@@ -2,7 +2,7 @@ class LaundromatsController < ApplicationController
   def index
     # params[:address]
     # SEARCH BY ADDRESS
-    @laundromats = policy_scope(Laundromat).near(address_params[:address], 10)
+    @laundromats = policy_scope(Laundromat,laundromat_params[:address], 10))
   end
 
   def show
@@ -19,7 +19,7 @@ class LaundromatsController < ApplicationController
 
   private
 
-  def address_params
+  def laundromat_params
     params.require(:laundromat).permit(:address)
   end
 end

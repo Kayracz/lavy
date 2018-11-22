@@ -1,7 +1,7 @@
 class LaundromatPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.all.near(laundromat_params[:address], 10)
     end
   end
 

@@ -10,7 +10,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    user
   end
 
   def create?
