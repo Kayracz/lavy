@@ -1,0 +1,110 @@
+
+.text-center{
+  // color: #04444B;
+  // font-family: Raleway;
+  // font-weight: bold;
+  // align-items: center;
+  // font-size: 90px;
+  // line-height: 141px;
+}
+
+
+.btn-primary {
+  color: #fff;
+  background-color: #04444B;
+  border-color: #04444B;
+  border-radius: 10px;
+}
+
+.datechoose {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background-color: #00454c !important;
+  border: none;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 30px;
+  &::placeholder {
+    color: white;
+  }
+}
+
+.datepicker-holder {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  h2 {
+    margin-top: 0px;
+    font-size: 30px;
+    padding-right: 20px;
+  }
+}
+
+.datepicker-title {
+  margin-bottom: 50px;
+   color: #04444B;
+  font-family: Raleway;
+  font-weight: bold;
+  align-items: center;
+  font-size: 90px;
+  line-height: 141px;
+}
+
+.datepicker-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-right: 15px;
+  label {
+    margin-bottom: 5px;
+    border: 1px solid #00464d;
+    border-radius: 3px !important;
+    color: #00464d;
+  }
+  label.active {
+    outline: none !important;
+    background-color: #00464d !important;
+    color: white !important;
+  }
+  label.focus {
+    outline: none !important;
+  }
+}
+
+.services-options {
+  display: flex;
+  label {
+    margin: 5px;
+    border: 1px solid #00464d;
+    border-radius: 3px !important;
+    color: #00464d;
+  }
+  label.active {
+    outline: none !important;
+    background-color: #00464d !important;
+    color: white !important;
+  }
+  label.focus {
+    outline: none !important;
+  }
+}
+
+.service-icons {
+  i {
+    font-size: 60px;
+    padding: 20px 0px;
+    color: #b7b7b7;
+  }
+}
+
+.service-holder {
+  h2 {
+    margin-top: 0px;
+    font-size: 30px;
+  }
+  display: flex;
+  justify-content: space-between;
+}
