@@ -1,23 +1,25 @@
 class LaundromatsController < ApplicationController
   def index
-    @laundromats = policy_scope(Laundromat).order(created_at: :desc)
-
-    @map_laundromats = Laundromat.where.not(latitude: nil, longitude: nil)
-    @markers = @map_laundromats.map do |laundromat|
-      {
-        lng: laundromat.longitude,
-        lat: laundromat.latitude,
-        infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: laundromat}) }
-      }
-    end
-    respond_to do |format|
-      format.js
-      format.html
-    end
+    # params[:address]
+    # SEARCH BY ADDRESS
+    @laundromats = policy_scope(Laundromat).near(address_params[:address], 10)
   end
 
   def show
-   @laundromat = Laundromat.find(params[:id])
+    @laundromat = Laundromat.find(params[:id])
+    @markers = [
+      {
+          lng: @laundromat.longitude,
+          lat: @laundromat.latitude,
+          infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: @laundromat}) }
+        }
+    ]
    authorize @laundromat
+  end
+
+  private
+
+  def address_params
+    params.require(:laundromat).permit(:address)
   end
 end

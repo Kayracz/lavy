@@ -1,10 +1,10 @@
 
 <!-- BANNER -->
 
-      <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'bannerpic.jpeg' %>');">
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'bannerpic.jpeg' %>');">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
 
         <div id="banner-title">
           <div>
@@ -18,26 +18,21 @@
             </div>
           </div>
         </div>
-
         <div>
          <div id="cover">
-  <form method="get" action="">
-    <div class="tb">
-      <div class="td"><input type="text" placeholder="Location" required></div>
-      <div class="td" id="s-cover">
-        <button type="submit">
-          <div id="s-circle"></div>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
-        </div>
 
-      </div>
-    </div>
-  </div>
+           <%= simple_form_for :laundromat, url: laundromats_path, method: :get do |f| %>
+           <%= f.input :address, as: :string %>
+           <%= f.submit "Search" %>
+
+           <% end %>
+         </div>
+       </div>
+
+
+     </div>
+   </div>
+ </div>
 </div>
 
 <!--search two -->
