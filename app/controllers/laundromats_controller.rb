@@ -1,25 +1,20 @@
 class LaundromatsController < ApplicationController
   def index
-    # params[:address]
-    # SEARCH BY ADDRESS
-    @laundromats = policy_scope(Laundromat).near(address_params[:address], 10)
+    @laundromats = policy_scope(Laundromat)
+    unless params[:laundromat][:address].empty?
+      @laundromats = @laundromats.near(params[:laundromat][:address], 5)
+    end
   end
 
   def show
     @laundromat = Laundromat.find(params[:id])
-    @markers = [
-      {
-          lng: @laundromat.longitude,
-          lat: @laundromat.latitude,
-          infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: @laundromat}) }
-        }
-    ]
-   authorize @laundromat
-  end
+    @markers =
+    {
+      lng: @laundromat.longitude,
+      lat: @laundromat.latitude,
+      infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: @laundromat}) }
+    }
 
-  private
-
-  def address_params
-    params.require(:laundromat).permit(:address)
+    authorize @laundromat
   end
 end
