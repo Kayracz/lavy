@@ -30,13 +30,14 @@ puts "Create new seeds"
     # t.string "delivery_address"
     # t.integer "number_of_bags"
 
+Laundromat_addresses = ["Armenia 1447, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Av. Monroe 1655, Buenos Aires", "Chile 394, Buenos Aires", "Guido 1770, Buenos Aires", "Av. Pueyrredón 230, Buenos Aires", "Av. Triunvirato 4307, Buenos Aires", "Av. Cerviño 4720, Buenos Aires"]
 
-2.times do |i|
-  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: "#{i}-address", phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
+10.times do |i|
+  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
   laundromat.save!
 end
 
-Laundromat.all.each_with_index do |laundromat, i|
+2.times do |i|
   user = User.new(email: "#{i}-user@gmail.com", password: "123456", name: "#{i}-Jack Smith", phone_number: "8379119#{i}", role: true, address: "user-address#{i}")
   user.save!
 end
