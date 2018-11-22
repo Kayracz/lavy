@@ -18,8 +18,23 @@
             </div>
           </div>
         </div>
-
         <div>
+
+         <div id="cover">
+
+           <%= simple_form_for :laundromat, url: laundromats_path, method: :get do |f| %>
+           <%= f.input :address, as: :string %>
+           <%= f.submit "Search" %>
+
+           <% end %>
+         </div>
+       </div>
+
+
+     </div>
+   </div>
+ </div>
+
 
           <div class="col-xs-12">
             <div class="container-fluid searchbar text-center">
@@ -43,6 +58,7 @@
 </div>
 </div>
 </div>
+
 </div>
 
 <!--search two -->
