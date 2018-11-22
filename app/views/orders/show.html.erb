@@ -1,24 +1,92 @@
-<h1><% Laundromat.name %></h1>
+<div class="container confirmation">
+  <h1 class="lavy-color">Order confirmation</h1>
 
-<div class="showimage" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%), url('https://cdn.vox-cdn.com/thumbor/3svNtr1QQU3fRP5n5JrFkqqGJEM=/0x0:4368x2912/1200x800/filters:focal(2230x1080:2928x1778)/cdn.vox-cdn.com/uploads/chorus_image/image/58030231/3675406879_acf944d77c_o.0.jpg');">
-  <%= link_to 'Laundry Time', #orders_new_path
-  (@laundromat), class: "btn btn-primary btn-lg" %>
-</div>
-
-<div class="container">
-  <div
-  id="map"
-  style="width: 100%;
-  height: 60vh;"
-  data-markers="<%= @markers.to_json %>"
-  ></div>
-</div>
-
-
-<div>
-<ul>
-  <% @order.reviews.each do |r| %>
-  <li><%= r.description %></li>
-  <% end %>
-</ul>
+  <div class="confirmation-block">
+    <div class="number-round">1</div>
+    <p>Order details</p>
+    <div class="message">
+    <div class="message-body">
+      <table>
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td><%= @order.user.name %></td>
+        </tr>
+        <tr>
+          <td><strong>Reservation:</strong></td>
+          <td><%= @order.id %></td>
+        </tr>
+        <tr>
+          <td><strong>Amount:</strong></td>
+          <td><%= humanized_money_with_symbol(@order.amount) %></td>
+        </tr>
+        <tr>
+          <td><strong>Bags:</strong></td>
+          <td><%= @order.number_of_bags %></td>
+        </tr>
+      </table>
+    </div>
+    <%= image_tag("confirm-icon.png", size: "100x100") %>
+  </div>
+  </div>
+  <div class="confirmation-block">
+    <div class="number-round">2</div>
+    <p>Pick up</p>
+    <div class="message">
+    <div class="message-body">
+      <table>
+        <tr>
+          <td><strong>Date:</strong></td>
+          <td><%= @order.pick_up_time.strftime("%D") %></td>
+        </tr>
+        <tr>
+          <td><strong>Hour:</strong></td>
+          <td><%= @order.pick_up_time.strftime("%H:%M") %></td>
+        </tr>
+        <tr>
+          <td><strong>Location:</strong></td>
+          <td><%= @order.pick_up_address %></td>
+        </tr>
+      </table>
+    </div>
+    <%= image_tag("basket.png", size: "80x80") %>
+  </div>
+  </div>
+  <div class="confirmation-block">
+    <div class="number-round">3</div>
+    <p>Service</p>
+    <div class="message">
+    <div class="message-body">
+      <table>
+        <tr>
+          <td><strong>Wash / Press</strong></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <%= image_tag("clean.png", size: "80x80") %>
+  </div>
+  </div>
+  <div class="confirmation-block">
+    <div class="number-round">4</div>
+    <p>Delivery</p>
+    <div class="message">
+    <div class="message-body">
+      <table>
+        <tr>
+          <td><strong>Date:</strong></td>
+          <td><%= @order.delivery_time.strftime("%D") %></td>
+        </tr>
+        <tr>
+          <td><strong>Hour:</strong></td>
+          <td><%= @order.delivery_time.strftime("%H:%M") %></td>
+        </tr>
+        <tr>
+          <td><strong>Location:</strong></td>
+          <td><%= @order.delivery_address %></td>
+        </tr>
+      </table>
+    </div>
+    <%= image_tag("shirtclock.png", size: "100x100") %>
+  </div>
+  </div>
 </div>
