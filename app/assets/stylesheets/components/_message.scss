@@ -88,3 +88,43 @@
   flex-direction: column;
   flex-grow: 10;
 }
+.confirmation-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lavy-color {
+  color: #04444B;
+}
+.number-round {
+  color: white;
+  font-weight: bold;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #04444B;
+}
+.confirmation {
+  max-width: 900px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+  }
+  table {
+    width: 100%;
+}
+
+td, th {
+    padding: 0px;
+}
+.message {
+  flex-grow: 1;
+  max-width: 400px;
+  min-height: 140px;
+}
+}
