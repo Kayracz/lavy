@@ -1,18 +1,17 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
+// ADD THIS LINE 👇 (styling)
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
-
-
-
-//import 'mapbox-gl/dist/mapbox-gl.css'
-//import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
-//import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
-//import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// ADD THIS LINE 👇 (js)
 
 const mapElement = document.getElementById('map');
+
 
 if (mapElement) {
 
   mapboxgl.accessToken = process.env.MAPBOX_API_KEY // API key from `.env`
+
+
+
 
   const map = new mapboxgl.Map({
     container: 'map',
@@ -41,7 +40,9 @@ if (mapElement) {
     });
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
+
   map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
   }));
 }
+
