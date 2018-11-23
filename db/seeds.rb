@@ -30,7 +30,8 @@ puts "Create new seeds"
     # t.string "delivery_address"
     # t.integer "number_of_bags"
 
-Laundromat_addresses = ["Armenia 1447, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Av. Monroe 1655, Buenos Aires", "Chile 394, Buenos Aires", "Guido 1770, Buenos Aires", "Av. Pueyrredón 230, Buenos Aires", "Av. Triunvirato 4307, Buenos Aires", "Av. Cerviño 4720, Buenos Aires"]
+Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Av. Monroe 1655, Buenos Aires", "Defensa 596, Buenos Aires", "Guido 1770, Buenos Aires", "Av. Pueyrredón 230, Buenos Aires", "Av. Triunvirato 4307, Buenos Aires", "Av. Cerviño 4720, Buenos Aires"]
+User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
 
 10.times do |i|
   laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
@@ -38,13 +39,13 @@ Laundromat_addresses = ["Armenia 1447, Buenos Aires", "Av. Patricias Argentinas 
 end
 
 2.times do |i|
-  user = User.new(email: "#{i}-user@gmail.com", password: "123456", name: "#{i}-Jack Smith", phone_number: "8379119#{i}", role: true, address: "user-address#{i}")
+  user = User.new(email: "#{i}-user@gmail.com", password: "123456", name: "#{i}-Jack Smith", phone_number: "8379119#{i}", role: true, address: User_addresses[i])
   user.save!
 end
 
 User.all.each_with_index do |user, i|
   5.times do  |j|
-    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), pick_up_address: "#{i}-pick-up-address", delivery_address: "#{i}-delivery-address", number_of_bags: i+1)
+    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), address: User_addresses[i], pick_up_address: User_addresses[i], delivery_address: User_addresses[i], number_of_bags: i+1)
     order.save!
   end
 end

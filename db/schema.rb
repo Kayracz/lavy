@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_174613) do
+ActiveRecord::Schema.define(version: 2018_11_23_130442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 2018_11_20_174613) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
-    t.float "lat"
-    t.float "long"
     t.float "latitude"
     t.float "longitude"
   end
@@ -35,14 +33,17 @@ ActiveRecord::Schema.define(version: 2018_11_20_174613) do
     t.string "status"
     t.datetime "pick_up_time"
     t.datetime "delivery_time"
-    t.string "delivery_address"
     t.integer "number_of_bags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "amount_cents", default: 0, null: false
     t.bigint "pick_up_guy_id"
     t.bigint "delivery_guy_id"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.string "pick_up_address"
+    t.string "delivery_address"
     t.index ["delivery_guy_id"], name: "index_orders_on_delivery_guy_id"
     t.index ["laundromat_id"], name: "index_orders_on_laundromat_id"
     t.index ["pick_up_guy_id"], name: "index_orders_on_pick_up_guy_id"

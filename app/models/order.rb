@@ -11,6 +11,9 @@ class Order < ApplicationRecord
 
   monetize :amount_cents
 
+  geocoded_by :address # this is the how
+  after_validation :geocode, if: :will_save_change_to_address? # this is the do command
+
   private
 
   def delivery_time_after_pick_up_time

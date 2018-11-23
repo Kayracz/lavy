@@ -28,4 +28,12 @@ class OrderPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def map_pick_up?
+    true
+  end
+
+  def map_delivery?
+    true
+  end
 end
