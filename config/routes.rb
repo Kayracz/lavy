@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     member do
       get 'map_pick_up', to: 'orders#map_pick_up'
       get 'map_delivery', to: 'orders#map_delivery'
-      get 'map_laundromat', to: 'orders#map_laundromat'
     end
     resources :reviews, only: [:new, :create]
   end

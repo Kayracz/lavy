@@ -39,9 +39,8 @@
             <th scope="col">Number of bags</th>
             <th scope="col">Total price (ARS)</th>
             <th scope="col">Pick up time</th>
-            <th scope="col">Pick up address</th>
             <th scope="col">Delivery time</th>
-            <th scope="col">Delivery address</th>
+            <th scope="col">Address</th>
             <th scope="col">Status</th>
             <th scope="col">Cancel order</th>
           </tr>
@@ -56,9 +55,8 @@
           <td><%= order.number_of_bags %></td>
           <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.pick_up_address %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.delivery_address %></td>
+          <td><%= order.address %></td>
           <td>Pending</td>
           <td><%= link_to "Cancel order", order_path(order),
           method: :delete,
@@ -91,13 +89,14 @@
         <tr>
           <th scope="col">Pick up #</th>
           <th scope="col">Laundromat</th>
+          <th scope="col">Laundromat address</th>
           <th scope="col">Client name</th>
           <th scope="col">Number of bags</th>
           <th scope="col">Total price (ARS)</th>
           <th scope="col">Pick up time</th>
           <th scope="col">Pick up address</th>
           <th scope="col">Status</th>
-          <th scope="col">Confirm pick up</th>
+          <th scope="col">Map</th>
         </tr>
       </thead>
       <tbody>
@@ -105,13 +104,15 @@
         <tr>
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
+          <td><%= order.laundromat.address %></td>
           <td><%= order.user.name %></td>
           <td><%= order.number_of_bags %></td>
           <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.pick_up_address %></td>
+          <td><%= order.address %></td>
           <td>Pending</td>
-          <td><a href="#">Confirm pick up</a></td>
+          <!-- <td><a href="#">Confirm pick up</a></td> -->
+          <td><%= link_to "Map", map_pick_up_order_path(order) %></td>
         </tr>
         <% end %>
       </tbody>
@@ -130,13 +131,14 @@
         <tr>
           <th scope="col">Delivery #</th>
           <th scope="col">Laundromat</th>
+          <th scope="col">Laundromat address</th>
           <th scope="col">Client name</th>
           <th scope="col">Number of bags</th>
           <th scope="col">Total price (ARS)</th>
           <th scope="col">Delivery time</th>
           <th scope="col">Delivery address</th>
           <th scope="col">Status</th>
-          <th scope="col">Confirm delivery</th>
+          <th scope="col">Map</th>
         </tr>
       </thead>
       <tbody>
@@ -144,13 +146,15 @@
         <tr>
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
+          <td><%= order.laundromat.address %></td>
           <td><%= order.user.name %></td>
           <td><%= order.number_of_bags %></td>
           <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.delivery_address %></td>
+          <td><%= order.address %></td>
           <td>Pending</td>
-          <td><a href="#">Confirm delivery</a></td>
+          <!-- <td><a href="#">Confirm delivery</a></td> -->
+          <td><%= link_to "Map", map_delivery_order_path(order) %></td>
         </tr>
         <% end %>
       </tbody>

@@ -29,13 +29,11 @@ class OrdersController < ApplicationController
   end
 
   def map_pick_up
+    @markers = [{lng: @order.longitude, lat: @order.latitude}, {lng: @order.laundromat.longitude, lat: @order.laundromat.latitude}]
   end
 
   def map_delivery
-  end
-
-  def map_laundromat
-
+    @markers = [{lng: @order.longitude, lat: @order.latitude}, {lng: @order.laundromat.longitude, lat: @order.laundromat.latitude}]
   end
 
   private
