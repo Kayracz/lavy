@@ -1,8 +1,14 @@
 class LaundromatsController < ApplicationController
   def index
     @laundromats = policy_scope(Laundromat)
-    unless params[:laundromat][:address].empty?
-      @laundromats = @laundromats.near(params[:laundromat][:address], 5)
+    @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
+
+    @markers = @laundromats.map do |laundromat|
+      {
+        lng: laundromat.longitude,
+        lat: laundromat.latitude,
+        infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: laundromat}) }
+      }
     end
   end
 
