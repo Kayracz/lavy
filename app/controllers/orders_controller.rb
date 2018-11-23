@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+<<<<<<< Updated upstream
     @order = Order.new
     @order.pick_up_time = orders_params[:pick_up_time] + " " + orders_params[:pick_up_time_hs]
     @order.delivery_time = orders_params[:delivery_time] + " " + orders_params[:delivery_time_hs]
@@ -18,6 +19,9 @@ class OrdersController < ApplicationController
     @order.status = "pending"
     @order.delivery_address = orders_params[:delivery_address]
     @order.pick_up_address = orders_params[:pick_up_address]
+=======
+    @order = Order.new(order_params) # Nick comment: need to authorize order before we save it??
+>>>>>>> Stashed changes
     @laundromat = Laundromat.find(params[:laundromat_id])
     @order.laundromat = @laundromat
     @order.user = current_user
