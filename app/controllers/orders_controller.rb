@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
   private
 
   def orders_params
-    params.require(:order).permit(:pick_up_time_hs, :delivery_time_hs, :service_type, :pick_up_time, :delivery_time, :number_of_bags, :delivery_address, :pick_up_address)
+    params.require(:order).permit(:pick_up_time_hs, :delivery_time_hs, :service_type, :pick_up_time, :delivery_time, :number_of_bags, :address)
   end
 
   def set_order
