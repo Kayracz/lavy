@@ -1,44 +1,14 @@
+<!-- Map Modal -->
+<%= render 'modal-map', markers: @markers %>
+<div class="container">
+
+
 <div class="main-container">
-  <div id="sidebar">
-    <h3><a href="#">location</a></h3>
-    <h3><a href="#">price</a></h3>
-    <h3><a href="#">ratings</a></h3>
-    <h3><a href="#">delivery time</a></h3>
-    <div
-    id="map" class="bottom-right"
-    style="width: 450px;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-  </div>
+<!-- Index Sidebar -->
+<%= render 'index-sidebar' %>
 
-  <div class="message-container">
-
-    <% @laundromats.each do |laundromat| %>
-    <div class="message">
-      <img class="laundry-pic" src="https://thumbs.dreamstime.com/t/washing-machine-work-home-icon-vector-drawing-doodle-style-background-washing-machine-icon-vector-doodle-style-112393272.jpg">
-      <div class="message-body">
-        <p><strong><%= laundromat.name %></strong></p>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <p></p>
-      </div>
-      <div class="message-name">
-        <h3><strong>Bags/day</strong></h3>
-        <p><%= laundromat.bags_per_day %></p>
-        <h3><strong>Phone:</strong></h3>
-        <p><%= laundromat.phone_number %></p>
-      </div>
-      <div class="message-status">
-        <p class="price"> <%= humanized_money_with_symbol(laundromat.price) %></p>
-        <%= link_to 'Pick me!', new_laundromat_order_path(laundromat), class: "btn btn-default btn-xs" %>
-      </div>
-    </div>
-    <% end %>
-  </div>
+<!-- Message Cards -->
+<%= render  'messages', laundromats: @laundromats %>
 </div>
 
+</div>
