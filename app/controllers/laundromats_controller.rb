@@ -23,4 +23,14 @@ class LaundromatsController < ApplicationController
 
     authorize @laundromat
   end
+
+  def new
+    @laundromat = Laundromat.new
+    @laundromat.save
+    authorize @laundromat
+  end
+
+  def create
+
+  end
 end

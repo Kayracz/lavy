@@ -1,5 +1,18 @@
+
 <div class="container confirmation">
   <h1 class="lavy-color">Order confirmation</h1>
+<div id="background-wrap bubbl">
+    <div class="bubbl x1"></div>
+    <div class="bubbl x2"></div>
+    <div class="bubbl x3"></div>
+    <div class="bubbl x4"></div>
+    <div class="bubbl x5"></div>
+    <div class="bubbl x6"></div>
+    <div class="bubbl x7"></div>
+    <div class="bubbl x8"></div>
+    <div class="bubbl x9"></div>
+    <div class="bubbl x10"></div>
+</div>
 
   <div class="confirmation-block">
     <div class="number-round">1</div>
@@ -44,7 +57,7 @@
         </tr>
         <tr>
           <td><strong>Location:</strong></td>
-          <td><%= @order.pick_up_address %></td>
+          <td><%= @order.address %></td>
         </tr>
       </table>
     </div>
@@ -82,11 +95,17 @@
         </tr>
         <tr>
           <td><strong>Location:</strong></td>
-          <td><%= @order.delivery_address %></td>
+          <td><%= @order.address %></td>
         </tr>
       </table>
     </div>
     <%= image_tag("shirtclock.png", size: "100x100") %>
   </div>
   </div>
+
 </div>
+
+
+
+
+

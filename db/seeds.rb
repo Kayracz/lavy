@@ -45,7 +45,7 @@ end
 
 User.all.each_with_index do |user, i|
   5.times do  |j|
-    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), address: User_addresses[i], pick_up_address: User_addresses[i], delivery_address: User_addresses[i], number_of_bags: i+1)
+    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), address: User_addresses[i], number_of_bags: i+1)
     order.save!
   end
 end
