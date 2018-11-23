@@ -20,40 +20,37 @@
         </div>
         <div>
 
-         <div id="cover">
-
-           <%= simple_form_for :laundromat, url: laundromats_path, method: :get do |f| %>
-           <%= f.input :address, as: :string %>
-           <%= f.submit "Search" %>
-
-           <% end %>
+          <div class="container-fluid">
+            <div class="row">
+             <div class="col-xs-12">
+              <div class="searchbar text-center">
+                <div class="input-group">
+                 <%= simple_form_for :laundromat, url: laundromats_path, method: :get do |f| %>
+                 <input type="text" class="form-control" placeholder="Where are you?" aria-label="" aria-describedby="basic-addon1" name="laundromat[address]" id="laundromat_address" >
+                 <div class="input-group-append">
+                   <%= f.submit "Start Cleaning!",class:"btn btn-success", id:"submit-address-btn" %>
+                 </div>
+                 <% end %>
+               </div>
+             </div>
+           </div>
          </div>
        </div>
 
 
+
      </div>
+
+
    </div>
  </div>
-
-
-          <div class="col-xs-12">
-            <div class="container-fluid searchbar text-center">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-
-                <div class="input-group-append">
-                  <button class="btn btn-success" type="button">Start Cleaning!</button>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
 
 
 
-        </div>
-      </form>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 
 </div>
 </div>
@@ -62,6 +59,3 @@
 </div>
 
 <!--search two -->
-
-
-

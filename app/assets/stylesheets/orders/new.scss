@@ -1,0 +1,247 @@
+.btn-primary {
+  color: #fff;
+  background-color: #04444B;
+  border-color: #04444B;
+  border-radius: 10px;
+  text-align: center;
+
+  button{
+    text-align:center;
+  }
+}
+
+.datechoose {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background-color: #00454c !important;
+  border: none;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 30px;
+  &::placeholder {
+    color: white;
+  }
+}
+
+.datepicker-holder {
+  height: 198px;
+  display: flex;
+  justify-content: space-between;
+  h2 {
+    margin-top: 0px;
+    font-size: 30px;
+    padding-right: 20px;
+  }
+}
+
+.datepicker-title {
+  margin-bottom: 50px;
+  color: #04444B;
+  font-family: Raleway;
+  font-weight: bold;
+  align-items: center;
+  font-size: 90px;
+  line-height: 141px;
+}
+
+.datepicker-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-right: 15px;
+  label {
+    margin-bottom: 5px;
+    border: 1px solid #00464d;
+    border-radius: 3px !important;
+    color: #00464d;
+  }
+  label.active {
+    outline: none !important;
+    background-color: #00464d !important;
+    color: white !important;
+  }
+  label.focus {
+    outline: none !important;
+  }
+}
+
+.services-options {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 5px;
+    border: 1px solid #00464d;
+    border-radius: 3px !important;
+    color: #00464d;
+  }
+  label.active {
+    outline: none !important;
+    background-color: #00464d !important;
+    color: white !important;
+  }
+  label.focus {
+    outline: none !important;
+  }
+}
+
+.service-icons {
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    font-size: 18px;
+  }
+  i {
+    font-size: 18px;
+    padding: 0px 0px;
+    padding-right: 5px;
+    color: #9a9a9a;
+  }
+}
+
+.service-holder {
+  h2 {
+    margin-top: 0px;
+    font-size: 30px;
+  }
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+}
+
+.bag-holder{
+  h2 {
+    margin-top: 0px;
+    font-size: 30px;
+  }
+  display: flex;
+  justify-content: space-between;
+}
+
+.bag-title {
+ width: 100px;
+ height: 100px;
+ color: white;
+ background-color: #00454c !important;
+ border: none;
+ font-size: 27px;
+ font-weight: bold;
+ text-align: center;
+ border-radius: 50%;
+ margin-right: 30px;
+}
+
+
+.bag-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-right: 15px;
+  label {
+    margin-bottom: 5px;
+    border: 1px solid #00464d;
+    border-radius: 3px !important;
+    color: #00464d;
+  }
+}
+
+.bag-choose {
+  // color: white !important;
+  // font-family: Raleway;
+  // width: 80px;
+  // padding: 20px;
+  // height: 80px;
+  // border-radius: 0px 0px 0px 0px;
+  // font-weight: bold;
+  // font-size: 20px;
+  label{
+    text-align:center;
+    margin-right:20px;
+  }
+  appearance: none;
+  border-radius: 50%;
+  // background-color: #00464d;
+  option {
+    margin-left: 49px !important;
+  }
+}
+
+.bag-choose:active {
+  outline: none;
+}
+
+.bag-choose:focus {
+  outline: none;
+}
+
+.submit-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-order {
+  margin: 0 auto;
+  margin: 30px;
+  margin-top: 100px;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  input {
+    width: 50%;
+  }
+}
+
+.submit-order input:hover {
+  background-color: #00464d;
+}
+
+.submit-order input:focus {
+  background-color: #00464d;
+}
+
+.submit-order input:active {
+  background-color: #00464d;
+}
+
+.submit-order input:active:focus {
+  background-color: #00464d;
+}
+
+.submit-order input[type="submit"]:disabled {
+  background-color: #00464d !important;
+}
+
+@media only screen and (max-width: 600px) {
+
+.datepicker-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+.datechoose {
+  width: 75px;
+  height: 75px;
+  font-size: 20px;
+  margin-right: 0px;
+}
+
+.datepicker-options {
+    margin-right: 0px;
+}
+
+.bag-title {
+    width: 75px;
+    height: 75px;
+    font-size: 20px;
+    margin-right: 0px;
+}
+.submit-order input {
+    width: 100%;
+}
+}
