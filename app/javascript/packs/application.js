@@ -1,12 +1,13 @@
 import "bootstrap";
 import "../plugins/flatpickr";
 
-const addressInput = document.getElementById('laundromat_address');
+const algoliaFields = document.querySelectorAll('.algolia-fields');
 
-if (addressInput) {
+if (algoliaFields) {
   const places = require('places.js');
-  const placesAutocomplete = places({
-    container: addressInput
+  algoliaFields.forEach((field) => {
+    const placesAutocomplete = places({
+      container: field
+    });
   });
 }
-

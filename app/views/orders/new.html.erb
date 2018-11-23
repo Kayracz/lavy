@@ -11,7 +11,7 @@
     <div class="col-xs-12">
       <div class="addresspicker">
         <h2>Choose an address for your pickup</h2>
-        <%= f.input :pick_up_address, label: false %>
+        <%= f.input :pick_up_address, label: false, input_html: { class: 'algolia-fields' } %>
       </div>
     </div>
 
@@ -47,7 +47,7 @@
     <div class="col-xs-12">
       <div class="addresspicker">
         <h2>Choose an address for your pickup</h2>
-        <%= f.input :delivery_address, label: false %>
+        <%= f.input :delivery_address, label: false, input_html: { class: 'algolia-fields' } %>
       </div>
     </div>
 
