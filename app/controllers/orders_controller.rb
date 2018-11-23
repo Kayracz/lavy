@@ -11,14 +11,24 @@ class OrdersController < ApplicationController
   end
 
   def create
-    raise
-    @order = Order.new(order_params) # Nick comment: need to authorize order before we save it??
+    @order = Order.new
+    @order.pick_up_time = orders_params[:pick_up_time] + " " + orders_params[:pick_up_time_hs]
+    @order.delivery_time = orders_params[:delivery_time] + " " + orders_params[:delivery_time_hs]
+    @order.number_of_bags = orders_params[:number_of_bags]
+    @order.status = "pending"
+    @order.delivery_address = orders_params[:delivery_address]
+    @order.pick_up_address = orders_params[:pick_up_address]
     @laundromat = Laundromat.find(params[:laundromat_id])
     @order.laundromat = @laundromat
     @order.user = current_user
+    @order.delivery_guy = User.find_by(role: true)
+    @order.pick_up_guy = User.find_by(role: true)
+
+     # Nick comment: need to authorize order before we save it??
+    authorize @order
     if @order.save
       authorize @order
-      redirect_to order_path(@order) # edited by Nick, dont need nesting
+      redirect_to @order # edited by Nick, dont need nesting
     else
       render :new
     end
@@ -41,7 +51,7 @@ class OrdersController < ApplicationController
   private
 
   def orders_params
-    authorize @order
+    params.require(:order).permit(:pick_up_time_hs, :delivery_time_hs, :service_type, :pick_up_time, :delivery_time, :number_of_bags, :delivery_address, :pick_up_address)
   end
 
   def set_order
