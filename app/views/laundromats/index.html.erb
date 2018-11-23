@@ -1,64 +1,14 @@
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Laundromats</h4>
-      </div>
-      <div class="modal-body">
-       <div
-       id="map" style="width: 900px;
-       height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-       ></div>
-     </div>
-     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
-  </div>
-</div>
-</div>
+<!-- Map Modal -->
+<%= render 'modal-map', markers: @markers %>
+<div class="container">
+
 
 <div class="main-container">
-  <div id="sidebar">
-    <h3><a href="#">location</a></h3>
-    <h3><a href="#">price</a></h3>
-    <h3><a href="#">ratings</a></h3>
-    <h3><a href="#">delivery time</a></h3>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
-      Map
-    </button>
-  </div>
+<!-- Index Sidebar -->
+<%= render 'index-sidebar' %>
 
-  <div class="message-container">
-
-    <% @laundromats.each do |laundromat| %>
-    <div class="message">
-      <img class="laundry-pic" src="https://thumbs.dreamstime.com/t/washing-machine-work-home-icon-vector-drawing-doodle-style-background-washing-machine-icon-vector-doodle-style-112393272.jpg">
-      <div class="message-body">
-        <p><strong><%= laundromat.name %></strong></p>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <p></p>
-      </div>
-      <div class="message-name">
-        <h3><strong>Bags/day</strong></h3>
-        <p><%= laundromat.bags_per_day %></p>
-        <h3><strong>Phone:</strong></h3>
-        <p><%= laundromat.phone_number %></p>
-      </div>
-      <div class="message-status">
-        <p class="price"> <%= humanized_money_with_symbol(laundromat.price) %></p>
-        <%= link_to 'Pick me!', new_laundromat_order_path(laundromat), class: "btn btn-default btn-xs" %>
-      </div>
-    </div>
-    <% end %>
-  </div>
+<!-- Message Cards -->
+<%= render  'messages', laundromats: @laundromats %>
 </div>
 
+</div>
