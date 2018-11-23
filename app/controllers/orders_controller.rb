@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
   end
 
   def map_pick_up
-    @markers = [{lng: @order.longitude, lat: @order.latitude}, {lng: @order.laundromat.longitude, lat: @order.laundromat.latitude}]
+    @markers = [{lng: @order.longitude, lat: @order.latitude, infoWindow: { content: render_to_string(partial: "/orders/map_window_client", locals: { order: @order }) }}, {lng: @order.laundromat.longitude, lat: @order.laundromat.latitude, infoWindow: { content: render_to_string(partial: "/orders/map_window_laundromat", locals: { order: @order }) }}]
   end
 
   def map_delivery
