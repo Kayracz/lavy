@@ -1,7 +1,16 @@
+// import 'mapbox-gl/dist/mapbox-gl.css'
+// // ADD THIS LINE 👇 (styling)
+// import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
+// // ADD THIS LINE 👇 (js)
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+
 import 'mapbox-gl/dist/mapbox-gl.css'
-// ADD THIS LINE 👇 (styling)
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
-// ADD THIS LINE 👇 (js)
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
 
 const mapElement = document.getElementById('map');
 
@@ -44,5 +53,10 @@ if (mapElement) {
   map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
   }));
+
+  map.addControl(new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+  }), 'top-left');
+
 }
 
