@@ -16,8 +16,7 @@ class OrdersController < ApplicationController
     @order.delivery_time = orders_params[:delivery_time] + " " + orders_params[:delivery_time_hs]
     @order.number_of_bags = orders_params[:number_of_bags]
     @order.status = "pending"
-    @order.delivery_address = orders_params[:delivery_address]
-    @order.pick_up_address = orders_params[:pick_up_address]
+    @order.address = orders_params[:address]
     @laundromat = Laundromat.find(params[:laundromat_id])
     @order.laundromat = @laundromat
     @order.user = current_user
