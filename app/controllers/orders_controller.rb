@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, except: [:new, :create]
 
-  def show; end
+  def show
+  end
 
   def new
     @laundromat = Laundromat.find(params[:laundromat_id])
@@ -10,6 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    raise
     @order = Order.new(order_params) # Nick comment: need to authorize order before we save it??
     @laundromat = Laundromat.find(params[:laundromat_id])
     @order.laundromat = @laundromat
