@@ -31,7 +31,7 @@ puts "Create new seeds"
     # t.integer "number_of_bags"
 
 Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Av. Monroe 1655, Buenos Aires", "Defensa 596, Buenos Aires", "Guido 1770, Buenos Aires", "Av. Pueyrredón 230, Buenos Aires", "Av. Triunvirato 4307, Buenos Aires", "Av. Cerviño 4720, Buenos Aires"]
-User_addresses = ["Gorriti 5326, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
+User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
 
 10.times do |i|
   laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
