@@ -13,7 +13,7 @@ class LaundromatsController < ApplicationController
 
 
    if params[:address]
-      @laundromats = policy_scope(Laundromat).where("address = ?", params[:address])
+      @laundromats = policy_scope(Laundromat).near("address = ${algolia-fields}", params[:laundromat][:address])
     else
       @laundromats = policy_scope(Laundromat)
    end
