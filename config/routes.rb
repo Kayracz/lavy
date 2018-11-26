@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'map_delivery', to: 'orders#map_delivery'
     end
     resources :reviews, only: [:new, :create]
+    resources :payments, only: [:new, :create]
   end
 
 
