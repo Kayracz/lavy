@@ -176,18 +176,21 @@
   height: 55px;
   border-radius: 25px 0 0px 25px;
 }
-
-#submit-address-btn {
-  height: 50px;
-  border-radius: 0 25px 25px 0;
-  border: 1px solid white;
-  border-left: none;
+.search-field {
+  display: flex;
 }
+
 
 .searchbar.input-group {
   color: black !important;
 }
 
+#submit-address-btn {
+  height: 55px;
+  border-radius: 0 25px 25px 0;
+  border: 1px solid white;
+  border-left: none;
+}
 @media only screen and (max-width: 600px) {
 
   #submit-address-btn {
