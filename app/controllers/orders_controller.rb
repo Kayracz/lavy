@@ -22,12 +22,12 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.delivery_guy = User.find_by(role: true)
     @order.pick_up_guy = User.find_by(role: true)
-
+    @order.amount = @laundromat.price * @order.number_of_bags
      # Nick comment: need to authorize order before we save it??
     authorize @order
     if @order.save
       authorize @order
-      redirect_to @order # edited by Nick, dont need nesting
+      redirect_to new_order_payment_path(@order) # edited by Nick, dont need nesting
     else
       render :new
     end
