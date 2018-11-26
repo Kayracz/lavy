@@ -116,11 +116,21 @@
   }
 
   td, th {
-    padding: 0px;
+
+    padding: 2px;
+    color: gray;
+    text-align: right;
+    display: flex;
+
   }
   .message {
     flex-grow: 1;
-    max-width: 400px;
-    min-height: 140px;
+    max-width: 404px;
+    min-height: 194px;
+  }
+
+  img {
+    width: 49px;
+    height: 49px;
   }
 }
