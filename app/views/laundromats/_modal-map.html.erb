@@ -6,9 +6,16 @@
         <h4 class="modal-title" id="myModalLabel">Laundromats</h4>
       </div>
       <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+
          <div id="map" style="width: 100%; height: 480px;" data-markers="<%= markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" >
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
          </div>
+          </div>
+
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
