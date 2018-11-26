@@ -30,6 +30,7 @@
   &::placeholder {
     color: white;
   }
+
 }
 
 .datepicker-holder {
@@ -37,15 +38,16 @@
   display: flex;
   justify-content: space-between;
   h2 {
-    margin-top: 0px;
+    margin-top: 21px;
+    // margin-left: 12px;
     font-size: 30px;
-    padding-right: 20px;
+    padding-right: 309px;
   }
 }
 
 .datepicker-title {
   margin-bottom: 50px;
-   color: #04444B;
+  color: #04444B;
   font-family: Raleway;
   font-weight: bold;
   align-items: center;
@@ -107,4 +109,21 @@
   }
   display: flex;
   justify-content: space-between;
+
 }
+
+.timepicker-holder {
+ h2 {
+  margin-top: 0px;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  height: 40%;
+
+}
+height: 198px;
+display: flex;
+justify-content: space-between;
+}
+
