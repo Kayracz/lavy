@@ -29,8 +29,8 @@
               <div class="searchbar text-center">
                 <div class="input-group" style="color: black !important;">
                  <%= simple_form_for :laundromat, url: laundromats_path, method: :get do |f| %>
-                 <div>
                   <input type="text" class="form-control banner-address algolia-fields" placeholder="Where are you?" aria-label="" aria-describedby="basic-addon1" name="laundromat[address]">
+
                  </div>
                  <div class="input-group-append">
                    <%= f.submit "Start Cleaning!",class:"btn btn-success", id:"submit-address-btn" %>

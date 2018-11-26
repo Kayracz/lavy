@@ -1,10 +1,60 @@
 <div id="sidebar">
-  <h3><a href="#">location</a></h3>
+  <%= form_with url: laundromats_path, method: 'GET', local: true do |f| %>
+
+
+  <h3><a href="#">Distance</a></h3>
+  <%= f.radio_button :address, "1.5" %> <%= f.label "--->" %>
+  <br>
+  <%= f.radio_button :address, "5" %> <%= f.label "------>" %>
+  <br>
+  <%= f.radio_button :address, "10" %> <%= f.label "----------->"%>
+
+
+
   <h3><a href="#">price</a></h3>
+  <%= f.radio_button :price_cents, "5000" %> <%= f.label "$" %>
+  <br>
+  <%= f.radio_button :price_cents, "10000" %> <%= f.label "$$" %>
+  <br>
+  <%= f.radio_button :price_cents, "20000" %> <%= f.label "$$$" %>
+  <br>
+  <%= f.radio_button :price_cents, "20000" %> <%= f.label "$$$$" %>
+
+
+
+
   <h3><a href="#">ratings</a></h3>
-  <h3><a href="#">delivery time</a></h3>
+  <%= f.radio_button :ratings, "1" %> <%= f.label "*" %>
+  <br>
+  <%= f.radio_button :ratings, "2" %> <%= f.label "**" %>
+  <br>
+  <%= f.radio_button :ratings, "3" %> <%= f.label "***" %>
+  <br>
+  <%= f.radio_button :ratings, "4" %> <%= f.label "****" %>
+  <br>
+  <%= f.radio_button :ratings, "5" %> <%= f.label "*****" %>
+
+
+  <br>
+  <br>
+
+
+
+
+
+
+  <%= f.submit "Filter" %>
+
+  <% end %>
+
+
+
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
     Map
   </button>
 </div>
+<%= console %>
+
+<!--  <%= link_to "$", laundromats_path(price_cents: 5000) %>
+  <%= link_to "$$", laundromats_path(price_cents: 10000) %> -->

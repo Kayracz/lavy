@@ -1,7 +1,24 @@
 class LaundromatsController < ApplicationController
   def index
-    @laundromats = policy_scope(Laundromat)
-    @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
+
+    # @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
+
+
+
+    if params[:price_cents]
+      @laundromats = policy_scope(Laundromat).where("price_cents <= ?", params[:price_cents].to_i)
+    else
+      @laundromats = policy_scope(Laundromat)
+   end
+
+
+   if params[:address]
+      @laundromats = policy_scope(Laundromat).where("address = ?", params[:address])
+    else
+      @laundromats = policy_scope(Laundromat)
+   end
+
+
 
     @markers = @laundromats.map do |laundromat|
       {
