@@ -3,22 +3,22 @@
 
 
   <h3><a href="#">Distance</a></h3>
-  <%= f.radio_button :address, "1.5" %> <%= f.label "--->" %>
+  <%= f.radio_button :distance, "3" %> <%= f.label "0-3 km--->" %>
   <br>
-  <%= f.radio_button :address, "5" %> <%= f.label "------>" %>
+  <%= f.radio_button :distance, "9" %> <%= f.label "0-9km------->" %>
   <br>
-  <%= f.radio_button :address, "10" %> <%= f.label "----------->"%>
+  <%= f.radio_button :distance, "20" %> <%= f.label "0-20km----------->"%>
 
 
 
   <h3><a href="#">price</a></h3>
-  <%= f.radio_button :price_cents, "5000" %> <%= f.label "$" %>
+  <%= f.radio_button :price_cents, "5000" %> <%= f.label "$0-50" %>
   <br>
-  <%= f.radio_button :price_cents, "10000" %> <%= f.label "$$" %>
+  <%= f.radio_button :price_cents, "12000" %> <%= f.label "$51-150" %>
   <br>
-  <%= f.radio_button :price_cents, "20000" %> <%= f.label "$$$" %>
+  <%= f.radio_button :price_cents, "25000" %> <%= f.label "$151-$250" %>
   <br>
-  <%= f.radio_button :price_cents, "20000" %> <%= f.label "$$$$" %>
+  <%= f.radio_button :price_cents, "100000" %> <%= f.label "$250 or more" %>
 
 
 
@@ -36,6 +36,12 @@
 
 <br>
 <br>
+  <% if params[:laundromat] %>
+    <%= f.hidden_field :address, value: params[:laundromat][:address] %>
+  <% else %>
+    <%= f.hidden_field :address, value: params[:address] %>
+  <% end %>
+
 
 <%= f.submit "Filter" %>
 <% end %>

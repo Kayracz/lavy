@@ -3,8 +3,6 @@ class LaundromatsController < ApplicationController
 
     # @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
 
-
-
     if params[:price_cents]
       @laundromats = policy_scope(Laundromat).where("price_cents <= ?", params[:price_cents].to_i)
     else
@@ -12,10 +10,10 @@ class LaundromatsController < ApplicationController
    end
 
 
-   if params[:address]
-      @laundromats = policy_scope(Laundromat).near("address = ${algolia-fields}", params[:laundromat][:address])
+   if params[:distance]
+     @laundromats = @laundromats.near(Geocoder.coordinates(params[:address]), params[:distance].to_i)
     else
-      @laundromats = policy_scope(Laundromat)
+      @laundromats
    end
 
 
