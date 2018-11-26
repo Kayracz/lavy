@@ -150,10 +150,8 @@
 // }
 
 .input-group-append{
-  // display: flex;
-  // justify-content: space-between;
-
-
+  display: flex;
+  justify-content: center;
   .btn-success {
     color: #fff;
     background-color: #054A53;
@@ -195,6 +193,15 @@
   }
 }
 
+.ap-input-icon {
+    border: 0;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 198px;
+    outline: none;
+  }
 
 // <!-- TYPEWRITER -->
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
