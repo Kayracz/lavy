@@ -47,7 +47,7 @@
         </thead>
         <tbody>
          <% @user.orders.each_with_index do |order, index| %>
-         <tr>
+         <tr id="cancel-<%= order.id %>">
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
 
@@ -63,7 +63,7 @@
             <% end %>
           </td>
           <td><%= link_to "Cancel order", order_path(order),
-          method: :delete,
+          method: :delete, remote: true,
           data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>
@@ -106,7 +106,7 @@
       </thead>
       <tbody>
         <% @user.orders_to_pick_up.sort_by {|e| e.pick_up_time}.each_with_index do |order, index| %>
-        <tr>
+        <tr id="picked_up-<%= order.id %>">
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
           <td><%= order.laundromat.address %></td>
@@ -118,7 +118,7 @@
           <td><%= order.status %></td>
           <td><%= link_to "Map", map_pick_up_order_path(order) %></td>
           <td><%= link_to "Confirm pick up", update_picked_path(order, status: 'picked up'),
-          method: :patch,
+          method: :patch, remote: true,
           data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>
@@ -151,7 +151,7 @@
       </thead>
       <tbody>
         <% @user.orders_to_deliver.sort_by {|e| e.delivery_time}.each_with_index do |order, index| %>
-        <tr>
+        <tr id="delivered-<%= order.id %>" >
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
           <td><%= order.laundromat.address %></td>
@@ -163,7 +163,7 @@
           <td><%= order.status %></td>
           <td><%= link_to "Map", map_delivery_order_path(order) %></td>
           <td><%= link_to "Confirm delivery", update_delivered_path(order, status: 'delivered'),
-          method: :patch,
+          method: :patch, remote: true,
           data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>

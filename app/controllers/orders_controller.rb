@@ -38,18 +38,40 @@ class OrdersController < ApplicationController
 
   def update_picked
     @order.update(status: params[:status])
-    redirect_to dashboard_path
+   # redirect_to dashboard_path # if this line were active the ajax wouldnt work, because it would force the HTML
+
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+
+
+
   end
 
   def update_delivered
     @order.update(status: params[:status])
-    redirect_to dashboard_path
+   # redirect_to dashboard_path
+
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+
   end
 
   def destroy
-    @order.reviews.destroy_all  # We need to destroy all the children before we destroy the parent
-    @order.destroy              # Otherwise, we'll have references in the children to a parent id which doesn't exist
-    redirect_to dashboard_path
+    @order.reviews.destroy_all
+    @order.destroy
+
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+
+    # @order.reviews.destroy_all  # We need to destroy all the children before we destroy the parent
+    # @order.destroy              # Otherwise, we'll have references in the children to a parent id which doesn't exist
+    # redirect_to dashboard_path
   end
 
   def map_pick_up
@@ -87,4 +109,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     authorize @order
   end
+
 end
+
+
