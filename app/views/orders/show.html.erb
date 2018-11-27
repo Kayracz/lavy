@@ -1,7 +1,4 @@
-
-<div class="container confirmation">
-  <h1 class="lavy-color">Order confirmation</h1>
-<div id="background-wrap bubbl">
+<div id="background-wrap">
     <div class="bubbl x1"></div>
     <div class="bubbl x2"></div>
     <div class="bubbl x3"></div>
@@ -13,6 +10,10 @@
     <div class="bubbl x9"></div>
     <div class="bubbl x10"></div>
 </div>
+
+
+<div class="container confirmation">
+  <h1 class="lavy-color">Order confirmation</h1>
 
   <div class="confirmation-block">
     <div class="number-round">1</div>
@@ -103,7 +104,14 @@
   </div>
   </div>
 
+  <div class="button submit-order">
+    <%= link_to "Dashboard", dashboard_path, class: "btn btn-primary btn-lg"%>
+  </div>
 </div>
+
+
+
+
 
 
 

@@ -1,5 +1,11 @@
 <div class="message-container">
 
+  <% if laundromats.empty? %>
+     <h2>Sorry, we don't have laundromats on this area.</h2>
+   <h4><%= link_to "These are laundromats we work with!", laundromats_path(laundromat: {address: "Buenos Aires"}) %><h4>
+
+  <% end %>
+
   <% laundromats.each do |laundromat| %>
   <div class="message">
     <img class="laundry-pic" src= <%= laundromat.photo  %>>

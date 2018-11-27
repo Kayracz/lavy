@@ -1,3 +1,6 @@
+<div class="container-fluid" style="background-image: url('<%= image_path '1234.png' %>');">
+
+<div class="signup-login">
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -32,9 +35,12 @@
 
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+ <div class="form-actions">
+          <%= f.button :submit, "Sign Up", class: "btn btn-primary" %>
+        </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+</div>

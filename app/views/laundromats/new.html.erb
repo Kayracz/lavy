@@ -1,27 +1,39 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 sign-up-banner">
-      <div class="sign-up-pictures" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://picsum.photos/200/200');">
-        <h2>Extra income</h2>
-      </div>
-      <div class="sign-up-pictures" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://picsum.photos/200/200');">
-        <h2>No inconvenience</h2>
-      </div>
-      <div class="sign-up-pictures" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://picsum.photos/200/200');">
-        <h2>Flexibility</h2>
+    <!-- new form -->
+
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
+<div class="registry2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 66%), url('<%= image_path 'banner.jpeg' %>');">
+
+    <div class="container text-center">
+      <div class="wrapper">
+        <h1 class="title">Register your Laundromat</h1>
+
+        <p class="subtitle">To sign-up, please provide us with some basic information using
+        the contact form below. Please use valid credentials.</p>
+
+          <%= form_for @laundromat, html: { class: 'registry' } do |l| %>
+
+            <input type="text" class="name" placeholder="Name" name="laundromat[name]" id="laundromat_name" >
+
+            <div>
+              <p class="name-help">Please enter your first and last name.</p>
+            </div>
+
+            <input type="text" class="email" placeholder="Address" type="text" name="laundromat[address]" id="laundromat_address" >
+
+            <div>
+              <p class="email-help">Please enter your current email address.</p>
+            </div>
+
+            <input class="name" placeholder="Phone Number" type="tel" name="laundromat[phone_number]" id="laundromat_phone_number" >
+
+            <input class="name" placeholder="Bags per day" type="number" name="laundromat[bags_per_day]" id="laundromat_bags_per_day" >
+
+            <input type="submit" name="commit" value="Join us!" data-disable-with="Join us!" class="btn-primary" />
+
+        <% end %>
+
       </div>
     </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12" class="sign-up-registration-banner">
-        <video id="video" loop muted autoplay>
-         <source src=https://res.cloudinary.com/dit8thfvw/image/upload/v1542998851/sample.jpg type=video/webm>
-         </video>
-         <%= render "laundromats/form" %>
-       </div>
-     </div>
-   </div>
- </div>
