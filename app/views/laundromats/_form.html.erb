@@ -1,7 +1,7 @@
-<%= form_for @laundromat do |l| %>
+<%= simple_form_for @laundromat do |l| %>
 <%= l.input :name, class: "name" %>
 <%= l.input :address %>
 <%= l.input :phone_number %>
-
+<%= l.submit "Join us!" %>
 <% end %>
 
