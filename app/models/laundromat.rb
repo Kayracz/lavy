@@ -8,4 +8,6 @@ class Laundromat < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   monetize :price_cents
+
+  mount_uploader :photo, PhotoUploader # copied this line from boat model
 end

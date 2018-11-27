@@ -25,6 +25,14 @@ class OrderPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def update_picked?
+    record.pick_up_guy == user
+  end
+
+  def update_delivered?
+    record.delivery_guy == user
+  end
+
   def destroy?
     true
   end
