@@ -61,7 +61,7 @@
   }
 
 
-  input[type="text"],input[type="email"]{
+  input[type="text"],input[type="email"], input[type="tel"], input[type="number"]{
     width:98%;
     padding:15px 0px 15px 8px;
     border-radius:5px;
@@ -70,6 +70,11 @@
     border:1px solid rgba(0,0,0,1);
     margin-bottom:10px;
     color: white;
+    box-shadow: none;
+    outline: none;
+    &::placeholder {
+      color: white;
+    }
   // text-shadow:#000 0px 1px 5px;
 }
 
