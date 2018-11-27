@@ -1,4 +1,11 @@
 
+    <!-- new form -->
+
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 sign-up-banner">
@@ -11,11 +18,18 @@
       </div>
       <div class="sign-up-pictures" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://www.chr-apartments.com/sites/default/files/styles/504x296/public/EWilde_160615_1583.jpg?itok=1kk7uON7');">
 
-        <h2>Flexibility</h2>
-      </div>
-    </div>
-  </div>
-</div>
+
+<div class="registry2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 66%), url('<%= image_path 'banner.jpeg' %>');">
+
+    <div class="container text-center">
+      <div class="wrapper">
+        <h1 class="title">Register your Laundromat</h1>
+
+
+        <p class="subtitle">To sign-up, please provide us with some basic information using
+        the contact form below. Please use valid credentials.</p>
+
+        <form class="registry" method="post" action="">
 
 <div class="wrapper">
   <div class="container">
@@ -29,11 +43,27 @@
        </div>
      </div>
 
-<button type="button3" class="btn btn-primary text-center">Join Lavy!</button>
 
- </div>
+          <p class="subtitle"> Name </p>
+          <input type="text" class="name" placeholder="Name">
 
- </div>
+          <div>
+            <p class="name-help">Please enter your first and last name.</p>
+          </div>
+
+          <p> Email </p>
+          <input type="email" class="email" placeholder="Email">
+
+          <div>
+            <p class="email-help">Please enter your current email address.</p>
+          </div>
+
+          <p> Phone number </p>
+          <input type="text" class="name" placeholder="Phone Number">
 
 
+          <button type="button" class="btn btn-primary text-center">Join us!</button>
 
+        </form>
+      </div>
+    </div>
