@@ -8,12 +8,18 @@ class LaundromatsController < ApplicationController
     end
 
 
-
     if params[:distance]
       @laundromats = @laundromats.near(Geocoder.coordinates(params[:address]), params[:distance].to_i)
     else
       @laundromats
     end
+
+    if params[:stars]
+      @laundromats = policy_scope(Laundromat).where("stars <= ?", params[:stars].to_i)
+    else
+
+
+
 
     @markers = @laundromats.map do |laundromat|
       {
