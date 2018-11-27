@@ -34,7 +34,7 @@ Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Av. Patricias Argentinas 
 User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
 
 10.times do |i|
-  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
+  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000, ratings: "#{0..5}")
   laundromat.save!
 end
 
