@@ -7,7 +7,6 @@ class LaundromatsController < ApplicationController
       @laundromats = policy_scope(Laundromat)
     end
 
-
     if params[:distance]
       @laundromats = @laundromats.near(Geocoder.coordinates(params[:address]), params[:distance].to_i)
     else
@@ -17,9 +16,8 @@ class LaundromatsController < ApplicationController
     if params[:stars]
       @laundromats = policy_scope(Laundromat).where("stars <= ?", params[:stars].to_i)
     else
-
-
-
+      @laundromats
+    end
 
     @markers = @laundromats.map do |laundromat|
       {
@@ -48,6 +46,7 @@ end
 
 def create
   @laundromat = Laundromat.new(laundromat_params)
+  @laundromat.price_cents = @laundromat.price_cents * 100
   authorize @laundromat
   return redirect_to laundromats_path if @laundromat.save
   render :new
@@ -55,7 +54,7 @@ end
 
 private
 
-def laundromat_params
-  params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day)
-end
+  def laundromat_params
+    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day, :price_cents)
+  end
 end

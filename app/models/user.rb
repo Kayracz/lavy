@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :orders_to_pick_up, class_name: "Order", foreign_key: "pick_up_guy_id"
   has_many :orders_to_deliver, class_name: "Order", foreign_key: "delivery_guy_id"
-
+  has_many :reviews, through: :orders
 
   validates :name, :address, presence: true
   validates :name, uniqueness: true

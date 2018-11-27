@@ -4,36 +4,39 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 
-<div class="registry2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 66%), url('<%= image_path 'banner.jpeg' %>');">
+    <div class="registry2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 66%), url('<%= image_path 'banner.jpeg' %>');">
 
-    <div class="container text-center">
-      <div class="wrapper">
-        <h1 class="title">Register your Laundromat</h1>
+      <div class="container text-center">
+        <div class="wrapper">
+          <h1 class="title">Register your Laundromat</h1>
 
-        <p class="subtitle">To sign-up, please provide us with some basic information using
-        the contact form below. Please use valid credentials.</p>
+          <p class="subtitle">To sign-up, please provide us with some basic information using
+          the contact form below. Please use valid credentials.</p>
 
           <%= form_for @laundromat, html: { class: 'registry' } do |l| %>
 
-            <input type="text" class="name" placeholder="Name" name="laundromat[name]" id="laundromat_name" >
+          <input type="text" class="name" placeholder="Name" name="laundromat[name]" id="laundromat_name" >
 
-            <div>
-              <p class="name-help">Please enter your first and last name.</p>
-            </div>
+          <div>
+            <p class="name-help">Please enter your first and last name.</p>
+          </div>
 
-            <input type="text" class="email" placeholder="Address" type="text" name="laundromat[address]" id="laundromat_address" >
+          <input type="text" class="email" placeholder="Address" type="text" name="laundromat[address]" id="laundromat_address" >
 
-            <div>
-              <p class="email-help">Please enter your current email address.</p>
-            </div>
+          <div>
+            <p class="email-help">Please enter your current email address.</p>
+          </div>
 
-            <input class="name" placeholder="Phone Number" type="tel" name="laundromat[phone_number]" id="laundromat_phone_number" >
+          <input class="name" placeholder="Phone Number" type="tel" name="laundromat[phone_number]" id="laundromat_phone_number" >
 
-            <input class="name" placeholder="Bags per day" type="number" name="laundromat[bags_per_day]" id="laundromat_bags_per_day" >
+          <input class="name" placeholder="Bags per day" type="number" name="laundromat[bags_per_day]" id="laundromat_bags_per_day" >
 
-            <input type="submit" name="commit" value="Join us!" data-disable-with="Join us!" class="btn-primary" />
+          <input class="name" placeholder="Price" type="text" name="laundromat[price_cents]" id="laundromat_price_cents" >
 
-        <% end %>
 
+          <input type="submit" name="commit" value="Join us!" data-disable-with="Join us!" class="btn-primary" />
+
+          <% end %>
+
+        </div>
       </div>
-    </div>
