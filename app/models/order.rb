@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   belongs_to :pick_up_guy, class_name: "User"
   belongs_to :delivery_guy, class_name: "User"
   belongs_to :laundromat
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :pick_up_time, :delivery_time, presence: true
   validate :delivery_time_after_pick_up_time

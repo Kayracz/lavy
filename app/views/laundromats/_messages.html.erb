@@ -6,17 +6,30 @@
 
   <% end %>
 
+
+
   <% laundromats.each do |laundromat| %>
   <div class="message">
     <img class="laundry-pic" src= <%= laundromat.photo  %>>
     <div class="message-body">
       <p><strong><%= laundromat.name %></strong></p>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
+
+      <%
+        checked_stars = (laundromat.reviews.average(:stars) || 3).ceil
+        stars = 5 - checked_stars
+      %>
+
+      <% checked_stars.times do %>
+        <span class="fa fa-star checked"></span>
+      <% end %>
+
+      <% stars.times do %>
+        <span class="fa fa-star"></span>
+      <% end %>
+
       <p></p>
+        <%= tag("span", id: "laundromat-node-#{laundromat.id}", data: { reviews: laundromat.reviews }) %>
+        <button type="button" class="btn btn-default btn-xs btn-reviews" id="<%= laundromat.id %>" data-toggle="modal" data-target="#reviewsModal">Reviews</button>
     </div>
     <div class="message-name">
       <h3><strong>Bags/day:</strong> <%= laundromat.bags_per_day %>  </h3>
@@ -30,3 +43,5 @@
   </div>
   <% end %>
 </div>
+
+
