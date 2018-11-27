@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
+  resources :reviews, only: [:destroy]
+
   patch "orders/:id/picked", to: "orders#update_picked", as: :update_picked
   patch "orders/:id/delivered", to: "orders#update_delivered", as: :update_delivered
 
