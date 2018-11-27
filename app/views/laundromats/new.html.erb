@@ -4,6 +4,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 
+
 <div class="registry2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 66%), url('<%= image_path 'banner.jpeg' %>');">
 
     <div class="container text-center">
@@ -36,5 +37,20 @@
           <button type="button" class="btn btn-primary text-center">Join us!</button>
 
         </form>
+
+<form class="simple_form new_laundromat" id="new_laundromat" novalidate="novalidate" action="/laundromats" accept-charset="UTF-8" method="post">
+
+
+  <input name="utf8" type="hidden" value="&#x2713;" />
+
+  <input type="hidden" name="authenticity_token" value="A5Fm7YQkYngzwlRzZG+pT1z5HG3gBLS2h1TgG7hqxnOvC49isxipZ4k1Jrl2NUzBWHCoE2DkqaxbhMWo0ouAwA==" />
+
+<div class="form-group string required laundromat_name form-group-invalid">
+  <label class="form-control-label string required" for="laundromat_name">Name <abbr title="required">*</abbr>
+  </label><input class="form-control is-invalid string required" aria-invalid="true" type="text" name="laundromat[name]" id="laundromat_name" /><div class="invalid-feedback">Name can&#39;t be blank</div></div>
+<div class="form-group string required laundromat_address form-group-invalid"><label class="form-control-label string required" for="laundromat_address">Address <abbr title="required">*</abbr></label><input class="form-control is-invalid string required" aria-invalid="true" type="text" name="laundromat[address]" id="laundromat_address" /><div class="invalid-feedback">Address can&#39;t be blank</div></div>
+<div class="form-group tel required laundromat_phone_number form-group-invalid"><label class="form-control-label tel required" for="laundromat_phone_number">Phone number <abbr title="required">*</abbr></label><input class="form-control is-invalid string tel required" aria-invalid="true" type="tel" name="laundromat[phone_number]" id="laundromat_phone_number" /><div class="invalid-feedback">Phone number can&#39;t be blank</div></div>
+</form>
+
       </div>
     </div>
