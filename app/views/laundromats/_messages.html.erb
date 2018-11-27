@@ -6,6 +6,8 @@
 
   <% end %>
 
+
+
   <% laundromats.each do |laundromat| %>
   <div class="message">
     <img class="laundry-pic" src= <%= laundromat.photo  %>>
@@ -26,6 +28,8 @@
       <% end %>
 
       <p></p>
+        <%= tag("span", id: "laundromat-node-#{laundromat.id}", data: { reviews: laundromat.reviews }) %>
+        <button type="button" class="btn btn-default btn-xs btn-reviews" id="<%= laundromat.id %>" data-toggle="modal" data-target="#reviewsModal">Reviews</button>
     </div>
     <div class="message-name">
       <h3><strong>Bags/day:</strong> <%= laundromat.bags_per_day %>  </h3>
