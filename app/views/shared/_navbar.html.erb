@@ -57,7 +57,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 
-        <li><%= link_to "Become a Laundry", new_laundromat_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Register your Laundromat", new_laundromat_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         <% if user_signed_in? %>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>

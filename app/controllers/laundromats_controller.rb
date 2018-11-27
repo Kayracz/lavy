@@ -46,6 +46,7 @@ end
 
 def create
   @laundromat = Laundromat.new(laundromat_params)
+  @laundromat.price_cents = @laundromat.price_cents * 100
   authorize @laundromat
   return redirect_to laundromats_path if @laundromat.save
   render :new
@@ -54,6 +55,6 @@ end
 private
 
   def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day)
+    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day, :price_cents)
   end
 end
