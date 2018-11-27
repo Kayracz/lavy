@@ -10,4 +10,19 @@ class Laundromat < ApplicationRecord
   monetize :price_cents
 
   mount_uploader :photo, PhotoUploader # copied this line from boat model
+
+  def stars
+    self.reviews.average(:stars) || 0
+  end
+
+  def self.minimum_stars(min)
+   laundromats = Laundromat.all
+   result = []
+   laundromats.each do |l|
+    if l.stars >= min
+      result << l
+    end
+   end
+   result
+  end
 end

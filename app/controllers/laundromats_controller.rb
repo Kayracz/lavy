@@ -1,7 +1,6 @@
 class LaundromatsController < ApplicationController
   def index
     # @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
-
     if params[:price_cents]
       @laundromats = policy_scope(Laundromat).where("price_cents <= ?", params[:price_cents].to_i)
     else
@@ -14,44 +13,48 @@ class LaundromatsController < ApplicationController
       @laundromats
     end
 
-  @markers = @laundromats.map do |laundromat|
-    {
-      lng: laundromat.longitude,
-      lat: laundromat.latitude,
-      infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: laundromat}) }
-    }
+    if params[:stars]
+      @laundromats = policy_scope(Laundromat).minimum_stars(params[:stars].to_i)
+    else
+      @laundromats
+    end
+
+    @markers = @laundromats.map do |laundromat|
+      {
+        lng: laundromat.longitude,
+        lat: laundromat.latitude,
+        infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: laundromat}) }
+      }
+    end
   end
-end
 
-def show
-  @laundromat = Laundromat.find(params[:id])
-  @markers =
-  {
-    lng: @laundromat.longitude,
-    lat: @laundromat.latitude,
-    infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: @laundromat}) }
-  }
+  def show
+    @laundromat = Laundromat.find(params[:id])
+    @markers =
+    {
+      lng: @laundromat.longitude,
+      lat: @laundromat.latitude,
+      infoWindow: { content: render_to_string(partial: "/laundromats/map_window", locals: { laundromat: @laundromat}) }
+    }
+    authorize @laundromat
+  end
 
-  authorize @laundromat
-end
+  def new
+    @laundromat = Laundromat.new
+    authorize @laundromat
+  end
 
-def new
-  @laundromat = Laundromat.new
-  authorize @laundromat
-end
+  def create
+    @laundromat = Laundromat.new(laundromat_params)
+    @laundromat.price_cents = @laundromat.price_cents * 100
+    authorize @laundromat
+    return redirect_to laundromats_path if @laundromat.save
+    render :new
+  end
 
-def create
-  @laundromat = Laundromat.new(laundromat_params)
-  @laundromat.price_cents = @laundromat.price_cents * 100
-  authorize @laundromat
-  return redirect_to laundromats_path if @laundromat.save
-  render :new
-end
-
-private
-
+  private
 
   def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day, :price_cents)
+    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day, :price_cents, :stars)
   end
 end

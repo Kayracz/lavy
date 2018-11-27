@@ -15,7 +15,10 @@
       <p><strong><%= laundromat.name %></strong></p>
 
       <%
-        checked_stars = (laundromat.reviews.average(:stars) || 3).ceil
+
+        # checked_stars = (laundromat.reviews.average(:stars) || 3).ceil
+        checked_stars = laundromat.stars.ceil
+
         stars = 5 - checked_stars
       %>
 
