@@ -16,7 +16,7 @@ Laundromat.destroy_all
 
 puts "Create new seeds"
 
-Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Virrey Loreto 2348, Buenos Aires", "Luis María Drago 5681, Buenos Aires", "Guido 1770, Buenos Aires", "Av. Pueyrredón 230, Buenos Aires", "Av. Triunvirato 4307, Buenos Aires", "Av. Cerviño 4720, Buenos Aires"]
+Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Virrey Loreto 2348, Buenos Aires", "Luis María Drago 5681, Buenos Aires", "Juan Díaz de Solís 1270, Buenos Aires", "Av. San Martín 5125, Buenos Aires", "Baldomero Fernández Moreno 3864, Buenos Aires", "Diagonal Salta 596, Buenos Aires"]
 User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
 
 laundromat_images_url_extension = ["v1543292071/orrm3xutt5bje82z9zpl.jpg", "v1543292188/wa8dvl1iqppzw0yiqimv.jpg", "v1543292251/ww0gajviglryt6mqvm1l.jpg", "v1543292310/afruzs21gt77zm9ljitd.jpg", "v1543292355/yucaj2uuebpnejrokfjk.jpg", "v1543292381/bdxmxrciogrmgba5ni0p.jpg","v1543292409/ud0o4vzhjhwddzxbzi0g.jpg","v1543292429/rv5eg9s75ej7gkm798bf.jpg","v1543292450/tgvwshwjfhprx4awnbih.jpg", "v1543292777/xjhi4d8nshfqnfduhfml.jpg"]
