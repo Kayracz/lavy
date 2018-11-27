@@ -36,7 +36,7 @@ User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, 
 laundromat_images_url_extension = ["orrm3xutt5bje82z9zpl.jpg", "wa8dvl1iqppzw0yiqimv.jpg", "ww0gajviglryt6mqvm1l.jpg"]
 
 10.times do |i|
-  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000, ratings: "#{0..5}")
+  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
   laundromat.save!
 end
 
