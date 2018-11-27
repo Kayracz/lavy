@@ -8,7 +8,7 @@
 
   <% laundromats.each do |laundromat| %>
   <div class="message">
-    <img class="laundry-pic" src="https://thumbs.dreamstime.com/t/washing-machine-work-home-icon-vector-drawing-doodle-style-background-washing-machine-icon-vector-doodle-style-112393272.jpg">
+    <img class="laundry-pic" src= <%= laundromat.photo  %>>
     <div class="message-body">
       <p><strong><%= laundromat.name %></strong></p>
       <span class="fa fa-star checked"></span>

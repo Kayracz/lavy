@@ -14,29 +14,16 @@ Order.destroy_all
 User.destroy_all
 Laundromat.destroy_all
 
-# images = %w(http://res.cloudinary.com/deruwllkv/image/upload/v1542312646/wehfbsghaupq9uyw4jzb.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312650/hvqluwswg35dj3b1orf2.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312652/xzefeunnplvlwetb9xyu.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312654/gpl83ypcvqnrcsz4gcy4.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312656/gbpmr8s1f2yfarijbteu.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312659/hnljwao3yiy6aw3fvfxv.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312661/yraaocf9mwza5ub6v5zk.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312663/pkou5a9c2qb7xitt8qvi.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312666/lhpfqn0oqi2pvw1h0bzg.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312669/xtjg2bacghb5tm5wdlrp.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312670/fqhoy82zsijawcslqrch.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312673/kwrppwjberie1qhxr3m1.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312677/od8whw9vfxgjwahmpnwu.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312680/qlqpa2ilmeauokd51oi7.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312682/x0ouktxfwumvhdidx2ju.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312685/ijtvkqbiiylfyhhp4tel.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312689/rz5zjefz1fsb9usc61ba.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312692/u3b1psizzyvumnp8rsjv.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312695/cxvi5a5fthobohxt6f1h.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312698/zg14t4yqh2cmqdbnk4zx.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312701/fnqk41nux38p6v3lsue0.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312703/micns3v4a5mglcrkhoxx.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312709/sjgsuyxrlyqmjc9h0wah.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312712/s9wyyrtg34wwnssnuzyn.jpg http://res.cloudinary.com/deruwllkv/image/upload/v1542312714/satk8jil4bw0eqryawyi.jpg)
-
 puts "Create new seeds"
 
-  # validates :name, :address, :phone_number, :bags_per_day, presence: true
-  # validates :address, presence: true
-  # validates :phone_number, presence: true
-
-    # t.bigint "user_id"
-    # t.bigint "laundromat_id"
-    # t.string "status"
-    # t.datetime "pick_up_time"
-    # t.datetime "delivery_time"
-    # t.string "delivery_address"
-    # t.integer "number_of_bags"
-
-Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Av. Monroe 1655, Buenos Aires", "Defensa 596, Buenos Aires", "Guido 1770, Buenos Aires", "Av. Pueyrredón 230, Buenos Aires", "Av. Triunvirato 4307, Buenos Aires", "Av. Cerviño 4720, Buenos Aires"]
+Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Bogado 4547, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Virrey Loreto 2348, Buenos Aires", "Luis María Drago 5681, Buenos Aires", "Av. del Libertador 1201, Buenos Aires", "Av. San Martín 5125, Buenos Aires", "Pergamino 1109, Buenos Aires", "Diagonal Salta 596, Buenos Aires"]
 User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
 
-laundromat_images_url_extension = ["orrm3xutt5bje82z9zpl.jpg", "wa8dvl1iqppzw0yiqimv.jpg", "ww0gajviglryt6mqvm1l.jpg"]
+laundromat_images_url_extension = ["v1543292071/orrm3xutt5bje82z9zpl.jpg", "v1543292188/wa8dvl1iqppzw0yiqimv.jpg", "v1543292251/ww0gajviglryt6mqvm1l.jpg", "v1543292310/afruzs21gt77zm9ljitd.jpg", "v1543292355/yucaj2uuebpnejrokfjk.jpg", "v1543292381/bdxmxrciogrmgba5ni0p.jpg","v1543292409/ud0o4vzhjhwddzxbzi0g.jpg","v1543292429/rv5eg9s75ej7gkm798bf.jpg","v1543292450/tgvwshwjfhprx4awnbih.jpg", "v1543292777/xjhi4d8nshfqnfduhfml.jpg"]
+price_per_bag = [10000, 5000, 9000, 12000, 25000, 18000, 8000, 11000, 22000, 14000]
 
 10.times do |i|
-  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
+  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: price_per_bag[i], remote_photo_url: "https://res.cloudinary.com/deruwllkv/image/upload/" + laundromat_images_url_extension[i])
   laundromat.save!
 end
 
@@ -56,36 +43,5 @@ Order.all.each_with_index do |order|
   review = Review.new(order_id: order.id, stars: 1+rand(5), description: Faker::MostInterestingManInTheWorld.quote)
   review.save!
 end
-
-
-
-
-# 2.times do |i|
-#   user = User.new(email: "#{i}-user@gmail.com", password: "123456", name: "#{i}-Jack Smith", phone_number: "8379119#{i}", role: true)
-#   user.remote_photo_url = "https://res.cloudinary.com/deruwllkv/image/upload/v1542396873/kay.jpg"
-#   user.save!
-# end
-
-# boat_type = %w(Yatch 'Sail boat' Canoe Launch Houseboat 'Jet boat' Dinghy)
-
-# city = %w(Seattle Miami Ibiza Dakar Manila Mumbai Amsterdam Venice Lisbon Dakhla Ducos Noord Sydney Mumbai Nuuk Cancun Cartagena Montevideo Casablanca Lima)
-
-# User.all.each do |user|
-
-#   25.times do |i|
-#     i += 1
-#     Boat.create(
-#       user: user,
-#       name: Faker::Artist.name,
-#       location: city.sample,
-#       boat_type: boat_type.sample,
-#       size: (i * 5),
-#       description: Faker::MostInterestingManInTheWorld.quote,
-#       capacity: (i * 5),
-#       price:  (i * 10),
-#       remote_photo_url: images[i]
-#     )
-#   end
-# end
 
 puts "Finished seeding process!"
