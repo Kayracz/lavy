@@ -43,30 +43,6 @@
     text-transform:uppercase;
     // text-shadow:#000 0px 1px 5px;
     margin:0px;
-
-
-
-.sign-up-banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: blue;
-}
-
-.sign-up-pictures {
-  height: 200px;
-  width: 200px;
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  h2 {
-    margin: 0;
-    color: white;
-    text-align: center;
-    font-size: 25px;
-
   }
 
   p{
@@ -85,7 +61,7 @@
   }
 
 
-  input[type="text"],input[type="email"]{
+  input[type="text"],input[type="email"], input[type="tel"], input[type="number"]{
     width:98%;
     padding:15px 0px 15px 8px;
     border-radius:5px;
@@ -94,9 +70,13 @@
     border:1px solid rgba(0,0,0,1);
     margin-bottom:10px;
     color: white;
+    box-shadow: none;
+    outline: none;
+    &::placeholder {
+      color: white;
+    }
   // text-shadow:#000 0px 1px 5px;
 }
-
 
 input[type="submit"]{
   width:100%;
@@ -130,25 +110,6 @@ input[type="submit"]:hover{
   opacity:1;
   cursor:pointer;
 }
-
-.sign-up-registration-banner {
- background-size: cover;
-}
-
-.sign-up-registration {
-text-align: center;
-}
-
-#p {
- text-color: white;
-}
-
-.invalid-feedback {
-  text-color: white;
-}
-
-.wrapper {
- background-image: url('https://turismo.buenosaires.gob.ar/sites/turismo/files/caminito_la_boca_1200_gente_1.jpg');
 
 .name-help,.email-help{
   display:none;
