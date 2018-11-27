@@ -1,0 +1,45 @@
+.pay {
+  background: white;
+  padding: 61px 72px;
+  padding-bottom: 160px;
+  margin-top: 116px;
+  margin-bottom: 62px;
+  margin-left: 98px;
+  margin-right: 98px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 47px rgba(0,0,0,0.1);
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  h1{
+    margin-bottom: 49px;
+    color: #054A53;
+  }
+
+  span{
+    font-size: 20px;
+    position: relative;
+    padding: 5px 1px;
+    height: 41px;
+    width: -29px;
+  }
+
+}
+.stripe-button-el span {
+  display: block;
+  position: relative;
+  padding: 5px 14px;
+  height: 36px;
+  line-height: 33px;
+  background: #1275ff;
+  background-image: -webkit-linear-gradient(#7dc5ee,#008cdd 85%,#30a2e4);
+}
+
+.amount{
+  margin-bottom: 25px;
+   color: #054A53;
+}
