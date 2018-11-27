@@ -1,7 +1,11 @@
+
+
+
 .sign-up-banner {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: blue;
 }
 
 .sign-up-pictures {
@@ -21,13 +25,23 @@
 }
 
 .sign-up-registration-banner {
-background-cover: url('`')
+ background-size: cover;
 }
 
-#video
-
-
 .sign-up-registration {
+text-align: center;
+}
+
+#p {
+ text-color: white;
+}
+
+.invalid-feedback {
+  text-color: white;
+}
+
+.wrapper {
+ background-image: url('https://turismo.buenosaires.gob.ar/sites/turismo/files/caminito_la_boca_1200_gente_1.jpg');
 
 }
 
