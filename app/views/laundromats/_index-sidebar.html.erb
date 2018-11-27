@@ -3,11 +3,13 @@
 
 
   <h3><a href="#">Distance</a></h3>
-  <%= f.radio_button :distance, "3" %> <%= f.label "0-3 km--->" %>
+  <%= f.radio_button :distance, "3" %> <%= f.label "0-3 km" %>
   <br>
-  <%= f.radio_button :distance, "9" %> <%= f.label "0-9km------->" %>
+  <%= f.radio_button :distance, "9" %> <%= f.label "0-9km" %>
   <br>
-  <%= f.radio_button :distance, "20" %> <%= f.label "0-20km----------->"%>
+  <%= f.radio_button :distance, "20" %> <%= f.label "0-20km"%>
+
+
 
 
 
@@ -50,9 +52,11 @@
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-default btn-lg" id="map-trigger" data-toggle="modal" data-target="#myModal">
-    Map
+  Map
   </button>
 </div>
 
 <!--  <%= link_to "$", laundromats_path(price_cents: 5000) %>
   <%= link_to "$$", laundromats_path(price_cents: 10000) %> -->
+
+
