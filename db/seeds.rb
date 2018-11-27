@@ -33,8 +33,10 @@ puts "Create new seeds"
 Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Av. Patricias Argentinas 351, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Av. Monroe 1655, Buenos Aires", "Defensa 596, Buenos Aires", "Guido 1770, Buenos Aires", "Av. Pueyrredón 230, Buenos Aires", "Av. Triunvirato 4307, Buenos Aires", "Av. Cerviño 4720, Buenos Aires"]
 User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
 
+laundromat_images_url_extension = ["orrm3xutt5bje82z9zpl.jpg", "wa8dvl1iqppzw0yiqimv.jpg", "ww0gajviglryt6mqvm1l.jpg"]
+
 10.times do |i|
-  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000, ratings: "#{0..5}")
+  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: 10000)
   laundromat.save!
 end
 
@@ -45,7 +47,7 @@ end
 
 User.all.each_with_index do |user, i|
   5.times do  |j|
-    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), address: User_addresses[i], number_of_bags: i+1)
+    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), address: User_addresses[i], number_of_bags: i+1, status: 'pending')
     order.save!
   end
 end

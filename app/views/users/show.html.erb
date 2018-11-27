@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <% if @orders.length > 0 %>
+  <% if @user.orders.length > 0 %>
   <div class="container">
     <div class="title2">
       <h2>My orders</h2>
@@ -46,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-         <% @orders.each_with_index do |order, index| %>
+         <% @user.orders.each_with_index do |order, index| %>
          <tr>
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
@@ -57,7 +57,7 @@
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.address %></td>
-          <td>Pending</td>
+          <td><%= order.status %></td>
           <td><%= link_to "Cancel order", order_path(order),
           method: :delete,
           data: { confirm: "Are you sure?" } %></td>
@@ -97,6 +97,7 @@
           <th scope="col">Pick up address</th>
           <th scope="col">Status</th>
           <th scope="col">Map</th>
+          <th scope="col">Confirm pick up</th>
         </tr>
       </thead>
       <tbody>
@@ -110,9 +111,11 @@
           <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.address %></td>
-          <td>Pending</td>
-          <!-- <td><a href="#">Confirm pick up</a></td> -->
+          <td><%= order.status %></td>
           <td><%= link_to "Map", map_pick_up_order_path(order) %></td>
+          <td><%= link_to "Confirm pick up", update_picked_path(order, status: 'picked up'),
+          method: :patch,
+          data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>
       </tbody>
@@ -139,6 +142,7 @@
           <th scope="col">Delivery address</th>
           <th scope="col">Status</th>
           <th scope="col">Map</th>
+          <th scope="col">Confirm delivery</th>
         </tr>
       </thead>
       <tbody>
@@ -152,9 +156,11 @@
           <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.address %></td>
-          <td>Pending</td>
-          <!-- <td><a href="#">Confirm delivery</a></td> -->
+          <td><%= order.status %></td>
           <td><%= link_to "Map", map_delivery_order_path(order) %></td>
+          <td><%= link_to "Confirm delivery", update_delivered_path(order, status: 'delivered'),
+          method: :patch,
+          data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>
       </tbody>

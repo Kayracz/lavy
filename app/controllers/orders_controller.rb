@@ -33,6 +33,19 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+  end
+
+  def update_picked
+    @order.update(status: params[:status])
+    redirect_to dashboard_path
+  end
+
+  def update_delivered
+    @order.update(status: params[:status])
+    redirect_to dashboard_path
+  end
+
   def destroy
     @order.reviews.destroy_all  # We need to destroy all the children before we destroy the parent
     @order.destroy              # Otherwise, we'll have references in the children to a parent id which doesn't exist
@@ -67,7 +80,7 @@ class OrdersController < ApplicationController
   private
 
   def orders_params
-    params.require(:order).permit(:pick_up_time_hs, :delivery_time_hs, :service_type, :pick_up_time, :delivery_time, :number_of_bags, :address)
+    params.require(:order).permit(:pick_up_time_hs, :delivery_time_hs, :service_type, :pick_up_time, :delivery_time, :number_of_bags, :address, :status)
   end
 
   def set_order
