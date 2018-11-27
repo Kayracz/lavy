@@ -1,6 +1,5 @@
 class LaundromatsController < ApplicationController
   def index
-
     # @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
 
     if params[:price_cents]
@@ -9,14 +8,11 @@ class LaundromatsController < ApplicationController
       @laundromats = policy_scope(Laundromat)
     end
 
-
     if params[:distance]
-     @laundromats = @laundromats.near(Geocoder.coordinates(params[:address]), params[:distance].to_i)
-   else
-    @laundromats
-  end
-
-
+      @laundromats = @laundromats.near(Geocoder.coordinates(params[:address]), params[:distance].to_i)
+    else
+      @laundromats
+    end
 
   @markers = @laundromats.map do |laundromat|
     {
@@ -53,7 +49,7 @@ end
 
 private
 
-  def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day)
-  end
+def laundromat_params
+  params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day)
+end
 end

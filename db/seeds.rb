@@ -45,15 +45,24 @@ end
   user.save!
 end
 
-User.all.each_with_index do |user, i|
+Laundromat.all.each_with_index do |laundromat, i|
   5.times do  |j|
-    order = Order.new(user_id: user.id, laundromat_id: Laundromat.all[i].id, pick_up_guy_id: User.all.reverse[i].id, delivery_guy_id: User.all.reverse[i].id, pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7), address: User_addresses[i], number_of_bags: i+1, status: 'pending')
+    order = Order.new(
+      user: User.all.sample,
+      laundromat: laundromat,
+      pick_up_guy: User.all.sample,
+      delivery_guy: User.all.sample,
+      pick_up_time: Date.today + j, delivery_time: Date.today + j + 1 + rand(7),
+      address: User_addresses[i],
+      number_of_bags: i+1,
+      status: 'pending'
+    )
     order.save!
   end
 end
 
 Order.all.each_with_index do |order|
-  review = Review.new(order_id: order.id, stars: 1+rand(5), description: Faker::MostInterestingManInTheWorld.quote)
+  review = Review.new(order: order, stars: 1+rand(5), description: Faker::MostInterestingManInTheWorld.quote)
   review.save!
 end
 

@@ -11,11 +11,20 @@
     <img class="laundry-pic" src="https://thumbs.dreamstime.com/t/washing-machine-work-home-icon-vector-drawing-doodle-style-background-washing-machine-icon-vector-doodle-style-112393272.jpg">
     <div class="message-body">
       <p><strong><%= laundromat.name %></strong></p>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
+
+      <%
+        checked_stars = laundromat.reviews.average(:stars).ceil
+        stars = 5 - checked_stars
+      %>
+
+      <% checked_stars.times do %>
+        <span class="fa fa-star checked"></span>
+      <% end %>
+
+      <% stars.times do %>
+        <span class="fa fa-star"></span>
+      <% end %>
+
       <p></p>
     </div>
     <div class="message-name">
@@ -30,3 +39,5 @@
   </div>
   <% end %>
 </div>
+
+
