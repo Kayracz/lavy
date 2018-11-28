@@ -1,5 +1,13 @@
-<%= simple_form_for [@order, @review] do |f| %>
-<%= f.input :description %>
-<%= f.input :stars, collection: 0..5 %>
+<%= simple_form_for [@order, @review], html: { class: 'registry' } do |f| %>
+<%= f.input :description, as: :text %>
+
+<div class="star-position">
+  <% 5.times do |i| %>
+    <i class="fas fa-star"></i>
+  <% end %>
+</div>
+
+
+<%= f.hidden_field :stars, html: { id: 'review_stars' }%>
 <%= f.submit %>
 <% end %>
