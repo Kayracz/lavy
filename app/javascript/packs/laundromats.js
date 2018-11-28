@@ -16,6 +16,7 @@ const showReviews = reviews => `
 const fillModal = laundromat_id => {
   const laundromatNode = document.getElementById(`laundromat-node-${laundromat_id}`)
   const laundromatReviews = JSON.parse(laundromatNode.dataset.reviews)
+  console.log(laundromatNode)
   handleShow(laundromatReviews)
 }
 
