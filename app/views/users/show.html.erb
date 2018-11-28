@@ -75,14 +75,14 @@
 
 
 <% if @user.role == true %>
-<% if @user.orders_to_pick_up.empty? && @user.orders_to_deliver.empty? %>
+<% if @user.orders_to_pick_up.select{|e| e.status == "pending"}.empty? && @user.orders_to_deliver.select{|e| e.status != "delivered"}.empty? %>
 <ul>
   <div class="un">
     <p><em> There are no pick up/delivery jobs for you.</em></p>
   </div>
 </ul>
 <% end %>
-<% if @user.orders_to_pick_up.empty? == false %>
+<% if @user.orders_to_pick_up.select{|e| e.status == "pending"}.empty? == false %>
 <div class="container">
   <div class="title2">
     <h2>My pick up jobs</h2>
@@ -105,7 +105,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @user.orders_to_pick_up.sort_by {|e| e.pick_up_time}.each_with_index do |order, index| %>
+        <% @user.orders_to_pick_up.select{|e| e.status == "pending"}.sort_by {|e| e.pick_up_time}.each_with_index do |order, index| %>
         <tr id="picked_up-<%= order.id %>">
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
@@ -127,7 +127,7 @@
   </div>
 </div>
 <% end %>
-<% if @user.orders_to_deliver.empty? == false %>
+<% if @user.orders_to_deliver.select{|e| e.status != "delivered"}.empty? == false %>
 <div class="container">
   <div class="title2">
     <h2>My delivery jobs</h2>
@@ -150,7 +150,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @user.orders_to_deliver.sort_by {|e| e.delivery_time}.each_with_index do |order, index| %>
+        <% @user.orders_to_deliver.select{|e| e.status != "delivered"}.sort_by {|e| e.delivery_time}.each_with_index do |order, index| %>
         <tr id="delivered-<%= order.id %>" >
           <th scope="row"><%= index + 1 %></th>
           <td><%= order.laundromat.name %></td>
