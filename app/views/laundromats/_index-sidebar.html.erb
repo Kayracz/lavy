@@ -1,9 +1,6 @@
 <div id="sidebar">
   <%= form_with url: laundromats_path, method: 'GET', local: true do |f| %>
 
-
-
-
   <div class= "filtering">
 
     <h3>Distance</h3>
@@ -13,6 +10,7 @@
     <%= f.radio_button :distance, "9" %> <%= f.label "0-9km" %>
     <br>
     <%= f.radio_button :distance, "20" %> <%= f.label "0-20km"%>
+
 
 
 
@@ -27,18 +25,16 @@
     <%= f.radio_button :price_cents, "100000" %> <%= f.label "$250 or more" %>
 
 
-
-
-    <h3>ratings</h3>
-    <%= f.radio_button :ratings, "1" %> <%= f.label "*" %>
-    <br>
-    <%= f.radio_button :ratings, "2" %> <%= f.label "**" %>
-    <br>
-    <%= f.radio_button :ratings, "3" %> <%= f.label "***" %>
-    <br>
-    <%= f.radio_button :ratings, "4" %> <%= f.label "****" %>
-    <br>
-    <%= f.radio_button :ratings, "5" %> <%= f.label "*****" %>
+  <h3><a href="#">Ratings</a></h3>
+  <%= f.radio_button :stars, "1" %> <%= f.label "*" %>
+  <br>
+  <%= f.radio_button :stars, "2" %> <%= f.label "**" %>
+  <br>
+  <%= f.radio_button :stars, "3" %> <%= f.label "***" %>
+  <br>
+  <%= f.radio_button :stars, "4" %> <%= f.label "****" %>
+  <br>
+  <%= f.radio_button :stars, "5" %> <%= f.label "*****"%>
 
     <br>
     <br>
