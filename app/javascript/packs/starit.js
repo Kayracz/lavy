@@ -1,6 +1,6 @@
 export default () => {
-  const stars = document.querySelectorAll(".fa-star");
-  const formStars = document.getElementById('review_stars')
+  const stars = document.querySelectorAll(".review_stars");
+  const formStars = document.getElementById('review_input')
 
   stars.forEach((star, index) => {
     star.addEventListener("click", event => {
@@ -16,4 +16,3 @@ export default () => {
     });
   })
 }
-

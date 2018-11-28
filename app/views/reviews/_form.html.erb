@@ -1,13 +1,14 @@
-<%= simple_form_for [@order, @review], html: { class: 'registry' } do |f| %>
+
+<%= simple_form_for [@order, @review], html: { class: '' } do |f| %>
 <%= f.input :description, as: :text %>
 
 <div class="star-position">
   <% 5.times do |i| %>
-    <i class="fas fa-star"></i>
+    <i class="fas fa-star review_stars"></i>
   <% end %>
 </div>
 
 
-<%= f.hidden_field :stars, html: { id: 'review_stars' }%>
+<%= f.hidden_field :stars, html: { id: 'review_input' }%>
 <%= f.submit %>
 <% end %>
