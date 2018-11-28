@@ -1,4 +1,6 @@
 class LaundromatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
     # @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
     if params[:price_cents]

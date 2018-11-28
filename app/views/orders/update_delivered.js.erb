@@ -1,3 +1,11 @@
-console.log("Hello")
+console.log("Hello from delivered")
 
 document.getElementById("delivered-<%= @order.id %>").remove();
+
+var orderToUpdate = document.querySelector("#cancel-<%= @order.id %> .order_status")
+
+if (orderToUpdate) {
+  orderToUpdate.innerText = 'delivered'
+}
+
+
