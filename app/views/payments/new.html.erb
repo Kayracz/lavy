@@ -1,7 +1,7 @@
-<div class="container-fluid" style="min-height: 86vh;">
+<div class="container-fluid" style="min-height: 86vh;background-image: url('<%= image_path '1234.png' %>');">
 
 <div class="pay">
-<h1>Payment on Lavy <%= @order.id %></h1>
+<h1>Payment for Lavy <%= @order.id %></h1>
 <%= form_tag order_payments_path(@order) do %>
   <article>
     <label class="amount">
