@@ -3,11 +3,14 @@
 <div class="message-container">
 
   <% if laundromats.empty? %>
+  <div class="empty-message">
 
-  <h2>Sorry, we don't have laundromats on this area.</h2>
-  <h4><%= link_to "These are laundromats we work with!", laundromats_path(laundromat: {address: "Buenos Aires"}) %><h4>
 
-    <% end %>
+     <h2>Sorry, we don't have laundromats on this area.</h2>
+   <h4><%= link_to "These are laundromats we work with!", laundromats_path(laundromat: {address: "Buenos Aires"}) %><h4>
+</div>
+  <% end %>
+
 
     <!--Ribbon -->
 
@@ -16,14 +19,14 @@
 
         <div class="tutorial-card">
           <div class="tutorial-category-ribbon tutorial-category-ribbon-small ribbon-left ribbon-left-javascript" style="background-color: #005C66">
-            <span>Premium deal</span>
+            <% unless laundromats.empty? %>
+              <span>Premium deal</span>
+            <% end %>
             <div class="tutorial-content">
             </div>
           </div>
         </div>
       </div>
-
-
 
           <% laundromats.each do |laundromat| %>
 
@@ -74,5 +77,6 @@
                   </div>
                 </div>
                 <% end %>
+              </div>
               </div>
 

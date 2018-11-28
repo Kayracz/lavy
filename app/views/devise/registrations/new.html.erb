@@ -1,7 +1,9 @@
 <div class="container-fluid" style="background-image: url('<%= image_path '1234.png' %>');">
 
 <div class="signup-login">
+  <div class="titlesignup">
 <h2>Sign up</h2>
+</div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -44,3 +46,6 @@
 
 </div>
 </div>
+
+
+
