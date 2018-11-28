@@ -108,11 +108,9 @@
         <h2>Bags</h2>
         <div>
           <select name="order[number_of_bags]" id="order_number_of_bags" class="custom-select bag-title bag-choose">
-            <option value="1">&#160;&#160;&#160;&#160;&#160;&#160;1</option>
-            <option value="2">&#160;&#160;&#160;&#160;&#160;&#160;2</option>
-            <option value="3">&#160;&#160;&#160;&#160;&#160;&#160;3</option>
-            <option value="3">&#160;&#160;&#160;&#160;&#160;&#160;4</option>
-            <option value="3">&#160;&#160;&#160;&#160;&#160;&#160;5</option>
+            <% 5.times do |number_of_bags| %>
+              <option value="<%= number_of_bags + 1 %>">&#160;&#160;&#160;&#160;&#160;&#160;<%= number_of_bags + 1 %></option>
+            <% end %>
           </select>
         </div>
       </div>
