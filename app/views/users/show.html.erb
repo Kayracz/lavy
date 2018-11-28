@@ -57,7 +57,7 @@
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.address %></td>
-          <td><%= order.status %>
+          <td class="order_status"><%= order.status %>
             <% if order.status == "delivered" %>
               <br><%= link_to "Write a review", new_order_review_path(order) %>
             <% end %>
@@ -115,7 +115,7 @@
           <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.address %></td>
-          <td><%= order.status %></td>
+          <td class="order_status"><%= order.status %></td>
           <td><%= link_to "Map", map_pick_up_order_path(order) %></td>
           <td><%= link_to "Confirm pick up", update_picked_path(order, status: 'picked up'),
           method: :patch, remote: true,
@@ -160,7 +160,7 @@
           <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
           <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
           <td><%= order.address %></td>
-          <td><%= order.status %></td>
+          <td class="order_status"><%= order.status %></td>
           <td><%= link_to "Map", map_delivery_order_path(order) %></td>
           <td><%= link_to "Confirm delivery", update_delivered_path(order, status: 'delivered'),
           method: :patch, remote: true,
