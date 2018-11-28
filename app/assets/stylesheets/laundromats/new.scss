@@ -82,11 +82,7 @@ input[type="submit"]{
   width:100%;
   padding:15px;
   border-radius:5px;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#28D2DE), to(#1A878F));
-  background-image: -webkit-linear-gradient(#28D2DE 0%, #1A878F 100%);
-  background-image: -moz-linear-gradient(#28D2DE 0%, #1A878F 100%);
-  background-image: -o-linear-gradient(#28D2DE 0%, #1A878F 100%);
-  background-image: linear-gradient(#28D2DE 0%, #1A878F 100%);
+  background-image: #005C66;
   font:14px Oswald;
   color:white;
   text-transform:uppercase;
