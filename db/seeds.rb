@@ -18,12 +18,13 @@ puts "Create new seeds"
 
 Laundromat_addresses = ["Malabia 1510, Buenos Aires", "Bogado 4547, Buenos Aires", "Lafinur 2988, Buenos Aires", "Pujol 644, Buenos Aires", "Virrey Loreto 2348, Buenos Aires", "Luis María Drago 5681, Buenos Aires", "Av. del Libertador 1201, Buenos Aires", "Av. San Martín 5125, Buenos Aires", "Pergamino 1109, Buenos Aires", "Diagonal Salta 596, Buenos Aires"]
 User_addresses = ["Godoy Cruz 2301, Buenos Aires", "Av. Luis María Campos 726, Buenos Aires"]
+Laundromat_names = ["Nick's Clean Engineers Club", "Antonio's Clean & Green", "Jamaica Queens Clean Clothes", "The Loiseau Clothes Mansion", "Bubble Rave", "Kayra's Lavy Factory", "Colin's British Laundromat", "Panchi's Laundro-mate", "Tyson's Garment Rinse", "Art of the Machine"]
 
 laundromat_images_url_extension = ["v1543292071/orrm3xutt5bje82z9zpl.jpg", "v1543292188/wa8dvl1iqppzw0yiqimv.jpg", "v1543292251/ww0gajviglryt6mqvm1l.jpg", "v1543292310/afruzs21gt77zm9ljitd.jpg", "v1543292355/yucaj2uuebpnejrokfjk.jpg", "v1543292381/bdxmxrciogrmgba5ni0p.jpg","v1543292409/ud0o4vzhjhwddzxbzi0g.jpg","v1543292429/rv5eg9s75ej7gkm798bf.jpg","v1543292450/tgvwshwjfhprx4awnbih.jpg", "v1543292777/xjhi4d8nshfqnfduhfml.jpg"]
 price_per_bag = [10000, 5000, 9000, 12000, 25000, 18000, 8000, 11000, 22000, 14000]
 
 10.times do |i|
-  laundromat = Laundromat.new(name: "#{i}-Laundromat", address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: price_per_bag[i], remote_photo_url: "https://res.cloudinary.com/deruwllkv/image/upload/" + laundromat_images_url_extension[i])
+  laundromat = Laundromat.new(name: Laundromat_names[i], address: Laundromat_addresses[i], phone_number: "#{i}000000", bags_per_day: "10#{i}", price_cents: price_per_bag[i], remote_photo_url: "https://res.cloudinary.com/deruwllkv/image/upload/" + laundromat_images_url_extension[i])
   laundromat.save!
 end
 
