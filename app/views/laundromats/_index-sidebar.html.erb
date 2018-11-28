@@ -25,16 +25,16 @@
     <%= f.radio_button :price_cents, "100000" %> <%= f.label "$250 or more" %>
 
 
-  <h3><a href="#">Ratings</a></h3>
-  <%= f.radio_button :stars, "1" %> <%= f.label "*" %>
-  <br>
-  <%= f.radio_button :stars, "2" %> <%= f.label "**" %>
-  <br>
-  <%= f.radio_button :stars, "3" %> <%= f.label "***" %>
-  <br>
-  <%= f.radio_button :stars, "4" %> <%= f.label "****" %>
-  <br>
-  <%= f.radio_button :stars, "5" %> <%= f.label "*****"%>
+    <h3><a href="#">Ratings</a></h3>
+    <%= f.radio_button :stars, "1" %> <%= f.label "*" %>
+    <br>
+    <%= f.radio_button :stars, "2" %> <%= f.label "**" %>
+    <br>
+    <%= f.radio_button :stars, "3" %> <%= f.label "***" %>
+    <br>
+    <%= f.radio_button :stars, "4" %> <%= f.label "****" %>
+    <br>
+    <%= f.radio_button :stars, "5" %> <%= f.label "*****"%>
 
     <br>
     <br>
@@ -45,9 +45,10 @@
     <% end %>
   </div>
 
-
-  <%= f.submit "Filter" %>
-  <% end %>
+  <div class="filter1">
+    <%= f.submit "Filter!" %>
+    <% end %>
+  </div>
 
 
   <br>

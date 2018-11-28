@@ -19,6 +19,8 @@
   height: 200px;
   background-color: white;
 }
+
+
 .message-content {
   height: 100%;
   justify-content: space-around;
@@ -106,6 +108,9 @@
 
 
 
+
+
+
 #sidebar {
   flex: 0 0 200px;
   height: 100vh;
@@ -120,19 +125,27 @@
     }
   }
   .btn{
-    padding: 3px 46px;
-    border-color: #005C66;
-    font-size: 26px;
+    padding: 1px 16px;
+    border-color: lightgray;
+    font-size: 24px;
     line-height: 1.33333;
-    border-radius: 17px;
+    border-radius: 2px;
     font-color: #005C66;
+    margin: -6px -1px 13px -3px;
     color: #005C66;
   }
 
 }
 
 
-
+.filter1 {
+    padding-right: 47px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-radius: 13px !important;
+    font-size: 24px !important;
+     color: #005C66;
+}
 
 
 .botton-right {
