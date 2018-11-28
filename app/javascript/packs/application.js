@@ -1,6 +1,9 @@
 import "bootstrap";
 import "../plugins/flatpickr";
 import "./laundromats"
+import starit from "./starit"
+
+starit()
 
 const algoliaFields = document.querySelectorAll('.algolia-fields');
 
