@@ -1,6 +1,6 @@
 <!-- Map Modal -->
 <%= render 'modal-map', markers: @markers %>
-<div class="container">
+<div class="container-fluid">
 
 
 <div class="main-container">
@@ -16,21 +16,6 @@
 <%= render 'reviews_modal' %>
 
 
-<!-- WhatsHelp.io widget -->
-<script type="text/javascript">
-    (function () {
-        var options = {
-            whatsapp: "+59178000375", // WhatsApp number
-            email: "kayracz@gmail.com", // Email
-            call_to_action: "Contact us!", // Call to action
-            button_color: "#000000", // Color of button
-            position: "right", // Position may be 'right' or 'left'
-            order: "email,whatsapp", // Order of buttons
-        };
-        var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
-        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
-</script>
-<!-- /WhatsHelp.io widget -->
+
+
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '8047a5e0-f098-4a81-b069-9e775be16872', f: true }); done = true; } }; })();</script>

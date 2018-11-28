@@ -1,29 +1,28 @@
 <div id="sidebar">
   <%= form_with url: laundromats_path, method: 'GET', local: true do |f| %>
 
+  <div class= "filtering">
 
-  <h3><a href="#">Distance</a></h3>
-  <%= f.radio_button :distance, "3" %> <%= f.label "0-3 km" %>
-  <br>
-
-  <%= f.radio_button :distance, "9" %> <%= f.label "0-9 km" %>
-  <br>
-  <%= f.radio_button :distance, "20" %> <%= f.label "0-20 km"%>
-
-
-
-  <h3><a href="#">Price</a></h3>
-  <%= f.radio_button :price_cents, "5000" %> <%= f.label "$0-50" %>
-  <br>
-  <%= f.radio_button :price_cents, "15000" %> <%= f.label "$51-150" %>
-  <br>
-
-  <%= f.radio_button :price_cents, "20000" %> <%= f.label "$151-$200" %>
-
-  <br>
-  <%= f.radio_button :price_cents, "100000" %> <%= f.label "$201 or more" %>
+    <h3>Distance</h3>
+    <%= f.radio_button :distance, "3" %>
+    <%= f.label "0-3 km" %>
+    <br>
+    <%= f.radio_button :distance, "9" %> <%= f.label "0-9km" %>
+    <br>
+    <%= f.radio_button :distance, "20" %> <%= f.label "0-20km"%>
 
 
+
+
+    <h3>price</h3>
+    <%= f.radio_button :price_cents, "5000" %>
+    <%= f.label "$0-50" %>
+    <br>
+    <%= f.radio_button :price_cents, "12000" %> <%= f.label "$51-150" %>
+    <br>
+    <%= f.radio_button :price_cents, "25000" %> <%= f.label "$151-$250" %>
+    <br>
+    <%= f.radio_button :price_cents, "100000" %> <%= f.label "$250 or more" %>
 
 
   <h3><a href="#">Ratings</a></h3>
@@ -37,19 +36,21 @@
   <br>
   <%= f.radio_button :stars, "5" %> <%= f.label "*****"%>
 
-<br>
-<br>
-  <% if params[:laundromat] %>
+    <br>
+    <br>
+    <% if params[:laundromat] %>
     <%= f.hidden_field :address, value: params[:laundromat][:address] %>
-  <% else %>
+    <% else %>
     <%= f.hidden_field :address, value: params[:address] %>
+    <% end %>
+  </div>
+
+
+  <%= f.submit "Filter" %>
   <% end %>
 
 
-<%= f.submit "Filter" %>
-<% end %>
-
-<br>
+  <br>
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-default btn-lg" id="map-trigger" data-toggle="modal" data-target="#myModal">
@@ -59,3 +60,5 @@
 
 <!--  <%= link_to "$", laundromats_path(price_cents: 5000) %>
   <%= link_to "$$", laundromats_path(price_cents: 10000) %> -->
+
+
