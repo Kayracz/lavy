@@ -1,178 +1,181 @@
 <!-- <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p> -->
+  <p>Find me in app/views/users/show.html.erb</p> -->
+  <%= render "reviews/new", order: @user.orders.last, review: @user.orders.last.reviews.build %>
+  <div class="wrapper">
 
-<div class="wrapper">
+    <div class="container">
+      <div class="title2">
+        <h2>Profile</h2>
+      </div>
+      <div class="flex-left">
+        <!-- <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"> -->
+        <% if @user.photo.present? %>
+        <img class="avatar-large" src=<%= cl_image_path @user.photo %>>
+        <% else %>
+        <img class="avatar-large" src=<%= image_path 'profile.png' %>>
+        <% end %>
 
-  <div class="container">
-    <div class="title2">
-      <h2>Profile</h2>
-    </div>
-    <div class="flex-left">
-      <!-- <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"> -->
-      <% if @user.photo.present? %>
-      <img class="avatar-large" src=<%= cl_image_path @user.photo %>>
-      <% else %>
-      <img class="avatar-large" src=<%= image_path 'profile.png' %>>
-      <% end %>
-
-      <div class="container-fluid">
-        <div class="names">
-          <p><strong>Name: </strong> <%= @user.name %></p>
-          <p><strong>Email: </strong> <%= @user.email %></p>
+        <div class="container-fluid">
+          <div class="names">
+            <p><strong>Name: </strong> <%= @user.name %></p>
+            <p><strong>Email: </strong> <%= @user.email %></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <% if @user.orders.length > 0 %>
+    <% if @user.orders.length > 0 %>
+    <div class="container">
+      <div class="title2">
+        <h2>My orders</h2>
+      </div>
+      <div class="table1">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Order #</th>
+              <th scope="col">Laundromat</th>
+              <th scope="col">Laundromat phone</th>
+              <th scope="col">Number of bags</th>
+              <th scope="col">Total price (ARS)</th>
+              <th scope="col">Pick up time</th>
+              <th scope="col">Delivery time</th>
+              <th scope="col">Address</th>
+              <th scope="col">Status</th>
+              <th scope="col">Cancel order</th>
+            </tr>
+          </thead>
+          <tbody>
+           <% @user.orders.each_with_index do |order, index| %>
+           <tr id="cancel-<%= order.id %>">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= order.laundromat.name %></td>
+
+            <td><%= order.laundromat.phone_number %></td>
+            <td><%= order.number_of_bags %></td>
+            <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
+            <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
+            <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
+            <td><%= order.address %></td>
+            <td><%= order.status %>
+              <% if order.status == "delivered" %>
+                <br><%#= link_to "Write a review", new_order_review_path(order) %>
+                <span id="<%= order.id %>" class="btn-reviews new-reviews" data-toggle="modal" data-target="#newReview">
+                  Write a review
+                </span>
+              <% end %>
+            </td>
+            <td><%= link_to "Cancel order", order_path(order),
+            method: :delete, remote: true,
+            data: { confirm: "Are you sure?" } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% end  %>
+
+
+  <% if @user.role == true %>
+  <% if @user.orders_to_pick_up.empty? && @user.orders_to_deliver.empty? %>
+  <ul>
+    <div class="un">
+      <p><em> There are no pick up/delivery jobs for you.</em></p>
+    </div>
+  </ul>
+  <% end %>
+  <% if @user.orders_to_pick_up.empty? == false %>
   <div class="container">
     <div class="title2">
-      <h2>My orders</h2>
+      <h2>My pick up jobs</h2>
     </div>
     <div class="table1">
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Order #</th>
+            <th scope="col">Pick up #</th>
             <th scope="col">Laundromat</th>
-            <th scope="col">Laundromat phone</th>
+            <th scope="col">Laundromat address</th>
+            <th scope="col">Client name</th>
             <th scope="col">Number of bags</th>
             <th scope="col">Total price (ARS)</th>
             <th scope="col">Pick up time</th>
-            <th scope="col">Delivery time</th>
-            <th scope="col">Address</th>
+            <th scope="col">Pick up address</th>
             <th scope="col">Status</th>
-            <th scope="col">Cancel order</th>
+            <th scope="col">Map</th>
+            <th scope="col">Confirm pick up</th>
           </tr>
         </thead>
         <tbody>
-         <% @user.orders.each_with_index do |order, index| %>
-         <tr id="cancel-<%= order.id %>">
-          <th scope="row"><%= index + 1 %></th>
-          <td><%= order.laundromat.name %></td>
-
-          <td><%= order.laundromat.phone_number %></td>
-          <td><%= order.number_of_bags %></td>
-          <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
-          <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.address %></td>
-          <td><%= order.status %>
-            <% if order.status == "delivered" %>
-              <br><%= link_to "Write a review", new_order_review_path(order) %>
-            <% end %>
-          </td>
-          <td><%= link_to "Cancel order", order_path(order),
-          method: :delete, remote: true,
-          data: { confirm: "Are you sure?" } %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <% @user.orders_to_pick_up.sort_by {|e| e.pick_up_time}.each_with_index do |order, index| %>
+          <tr id="picked_up-<%= order.id %>">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= order.laundromat.name %></td>
+            <td><%= order.laundromat.address %></td>
+            <td><%= order.user.name %></td>
+            <td><%= order.number_of_bags %></td>
+            <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
+            <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
+            <td><%= order.address %></td>
+            <td><%= order.status %></td>
+            <td><%= link_to "Map", map_pick_up_order_path(order) %></td>
+            <td><%= link_to "Confirm pick up", update_picked_path(order, status: 'picked up'),
+            method: :patch, remote: true,
+            data: { confirm: "Are you sure?" } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-<% end  %>
-
-
-<% if @user.role == true %>
-<% if @user.orders_to_pick_up.empty? && @user.orders_to_deliver.empty? %>
-<ul>
-  <div class="un">
-    <p><em> There are no pick up/delivery jobs for you.</em></p>
+  <% end %>
+  <% if @user.orders_to_deliver.empty? == false %>
+  <div class="container">
+    <div class="title2">
+      <h2>My delivery jobs</h2>
+    </div>
+    <div class="table1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Delivery #</th>
+            <th scope="col">Laundromat</th>
+            <th scope="col">Laundromat address</th>
+            <th scope="col">Client name</th>
+            <th scope="col">Number of bags</th>
+            <th scope="col">Total price (ARS)</th>
+            <th scope="col">Delivery time</th>
+            <th scope="col">Delivery address</th>
+            <th scope="col">Status</th>
+            <th scope="col">Map</th>
+            <th scope="col">Confirm delivery</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.orders_to_deliver.sort_by {|e| e.delivery_time}.each_with_index do |order, index| %>
+          <tr id="delivered-<%= order.id %>" >
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= order.laundromat.name %></td>
+            <td><%= order.laundromat.address %></td>
+            <td><%= order.user.name %></td>
+            <td><%= order.number_of_bags %></td>
+            <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
+            <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
+            <td><%= order.address %></td>
+            <td><%= order.status %></td>
+            <td><%= link_to "Map", map_delivery_order_path(order) %></td>
+            <td><%= link_to "Confirm delivery", update_delivered_path(order, status: 'delivered'),
+            method: :patch, remote: true,
+            data: { confirm: "Are you sure?" } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</ul>
-<% end %>
-<% if @user.orders_to_pick_up.empty? == false %>
-<div class="container">
-  <div class="title2">
-    <h2>My pick up jobs</h2>
-  </div>
-  <div class="table1">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Pick up #</th>
-          <th scope="col">Laundromat</th>
-          <th scope="col">Laundromat address</th>
-          <th scope="col">Client name</th>
-          <th scope="col">Number of bags</th>
-          <th scope="col">Total price (ARS)</th>
-          <th scope="col">Pick up time</th>
-          <th scope="col">Pick up address</th>
-          <th scope="col">Status</th>
-          <th scope="col">Map</th>
-          <th scope="col">Confirm pick up</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user.orders_to_pick_up.sort_by {|e| e.pick_up_time}.each_with_index do |order, index| %>
-        <tr id="picked_up-<%= order.id %>">
-          <th scope="row"><%= index + 1 %></th>
-          <td><%= order.laundromat.name %></td>
-          <td><%= order.laundromat.address %></td>
-          <td><%= order.user.name %></td>
-          <td><%= order.number_of_bags %></td>
-          <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
-          <td><%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.address %></td>
-          <td><%= order.status %></td>
-          <td><%= link_to "Map", map_pick_up_order_path(order) %></td>
-          <td><%= link_to "Confirm pick up", update_picked_path(order, status: 'picked up'),
-          method: :patch, remote: true,
-          data: { confirm: "Are you sure?" } %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-<% end %>
-<% if @user.orders_to_deliver.empty? == false %>
-<div class="container">
-  <div class="title2">
-    <h2>My delivery jobs</h2>
-  </div>
-  <div class="table1">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Delivery #</th>
-          <th scope="col">Laundromat</th>
-          <th scope="col">Laundromat address</th>
-          <th scope="col">Client name</th>
-          <th scope="col">Number of bags</th>
-          <th scope="col">Total price (ARS)</th>
-          <th scope="col">Delivery time</th>
-          <th scope="col">Delivery address</th>
-          <th scope="col">Status</th>
-          <th scope="col">Map</th>
-          <th scope="col">Confirm delivery</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user.orders_to_deliver.sort_by {|e| e.delivery_time}.each_with_index do |order, index| %>
-        <tr id="delivered-<%= order.id %>" >
-          <th scope="row"><%= index + 1 %></th>
-          <td><%= order.laundromat.name %></td>
-          <td><%= order.laundromat.address %></td>
-          <td><%= order.user.name %></td>
-          <td><%= order.number_of_bags %></td>
-          <td><%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></td>
-          <td><%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></td>
-          <td><%= order.address %></td>
-          <td><%= order.status %></td>
-          <td><%= link_to "Map", map_delivery_order_path(order) %></td>
-          <td><%= link_to "Confirm delivery", update_delivered_path(order, status: 'delivered'),
-          method: :patch, remote: true,
-          data: { confirm: "Are you sure?" } %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-<% end %>
-<% end %>
+  <% end %>
+  <% end %>
 
 
 
