@@ -1,5 +1,5 @@
-<%= simple_form_for [@order, @review] do |f| %>
-<%= f.input :description %>
+<%= simple_form_for [@order, @review], html: { class: 'registry' } do |f| %>
+<%= f.input :description, as: :text %>
 <%= f.input :stars, collection: 0..5 %>
 <%= f.submit %>
 <% end %>
