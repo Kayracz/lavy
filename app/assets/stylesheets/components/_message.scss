@@ -20,6 +20,10 @@
   background-color: white;
 }
 
+.empty-message {
+  margin: 3em;
+}
+
 
 .message-content {
   height: 100%;
@@ -33,6 +37,10 @@
   padding-left: 0;
   p {
     font-size: 24px;
+  }
+
+  strong {
+    font-size: 20px;
   }
 }
 .message-name {
@@ -62,12 +70,12 @@
   font-size: 13px;
   color: rgba(0,0,0,0.7);
 }
-.message-body {
-  font-size: 17px;
-  color: rgba(0, 0, 0, 0.4);
-  min-width: 100px;
-  margin-right: 10px;
-}
+// .message-body {
+//   font-size: 17px;
+//   color: rgba(0, 0, 0, 0.4);
+//   min-width: 100px;
+//   margin-right: 10px;
+// }
 
 
 .message:hover {
@@ -119,27 +127,30 @@
   box-shadow: 3px 1px 3px;
   padding-left: 15px;
 
+
   h3 {
     a {
       color: rgba(0,92,102,1);
     }
   }
   .btn{
-    padding: 1px 16px;
+    padding: 0px 15px 1px 16px;
     border-color: lightgray;
     font-size: 24px;
     line-height: 1.33333;
     border-radius: 2px;
     font-color: #005C66;
-    margin: -6px -1px 13px -3px;
+    margin: -55px -1px 13px -3px;
     color: #005C66;
+    margin: -12px -2px 14px;
+
   }
 
 }
 
 
 .filter1 {
-  padding-right: 47px !important;
+  padding-right: 48px !important;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
   border-radius: 13px !important;
@@ -225,10 +236,10 @@
 
 
 .confirmation1 .message1 {
-    flex-grow: 1;
-    max-width: 442px;
-    min-height: 204px;
-    margin: 11px 20px;
+  flex-grow: 1;
+  max-width: 442px;
+  min-height: 204px;
+  margin: 11px 20px;
 }
 
 
@@ -333,7 +344,7 @@
   width: 100px;
   height: 100px;
   background-color: #04444B;
-      margin-left: 76px;
+  margin-left: 76px;
 }
 
 
