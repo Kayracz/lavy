@@ -73,8 +73,6 @@ Order_lat = [-34.5682233, -34.5740684]
 Order_lng = [-58.4434002, -58.4595863]
 
 Order_addresses = []
-Orders_a.each_with_index do |order, index|
- Order_addresses << {address: order, lat: Order_lat[index], lng: Order_lng[index]}
 end
 
 Laundromat.all.each_with_index do |laundromat, i|
