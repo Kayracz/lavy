@@ -16,7 +16,7 @@ class LaundromatsController < ApplicationController
     end
 
     if params[:stars]
-      @laundromats = policy_scope(Laundromat).minimum_stars(params[:stars].to_i).reverse_order
+      @laundromats = policy_scope(Laundromat).minimum_stars(params[:stars].to_i).reverse
     else
       @laundromats
     end
