@@ -1,72 +1,78 @@
-<% title "Payments" %>
-<div class="container-fluid" style="min-height: 100vh;background-image: url('<%= image_path '1234.png' %>');">
+<div style="min-height: 100vh;">
 
-  <div class="pay">
-    <div class="ticket" style="min-height: 100vh;background-image: url('<%= image_path '7544.jpg' %>');">
+  <div id="confirmation-back">
+    <p></p>
+  </div>
 
-      <h1>Invoice<!--  <%= @order.laundromat.name %> </h1> -->
-      <h5> Invoice N# <%= @order.id %></h5>
-      <%= form_tag order_payments_path(@order) do %>
+  <div id="payment-holder">
+
+    <div class="pay">
+      <div class="ticket" style="min-height: 100vh;background-image: url('<%= image_path '7544.jpg' %>');">
+
+        <h1>Invoice<!--  <%= @order.laundromat.name %> </h1> -->
+        <h5> Invoice N# <%= @order.id %></h5>
+        <%= form_tag order_payments_path(@order) do %>
 
 
 
-      <div class="box card-panel z-depth-3">
-        <div class="merchant">
-          <h5 class="laundry-title center-align"><%= @order.laundromat.name %></h5>
-          <div class="invoice-info">
-            <p><%= @order.laundromat.address %></p>
-            <p><%= Time.now %></p>
+        <div class="box card-panel z-depth-3">
+          <div class="merchant">
+            <h5 class="laundry-title center-align"><%= @order.laundromat.name %></h5>
+            <div class="invoice-info">
+              <p><%= @order.laundromat.address %></p>
+              <p><%= Time.now %></p>
+            </div>
           </div>
-        </div>
 
-        <br> </br>
-        <p class="help" style="color: black;">
-        Please review your bill and pay </p>
+          <br> </br>
+          <p class="help" style="color: black;">
+          Please review your bill and pay </p>
 
-        <div class="striped-border">
-        </div>
-
-        <div class="invoice">
-          <table class="highlight">
-            <thead>
-              <tr>
-                <th> QTY </th>
-                <th> ITEM </th>
-                <th class="right-align">PRICE</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td><%= @order.number_of_bags %></td>
-                <td>Bags</td>
-                <td class="right-align"><%= @order.amount %></td>
-              </tr>
-            </tbody>
-
-          </table>
-        </div>
-
-        <article>
-
-          <label class="amount">
-            <span>Total amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-          </label>
-
-        </article>
-        <div style="margin-left: 100px; margin-top: 20px;">
-          <div style="width: 140px;">
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-name="Lavy"
-            data-email="<%= current_user.email %>"
-            data-description="Lavy order #: <%= @order.id %>"
-            data-amount="<%= @order.amount_cents %>"
-            data-currency="<%= @order.amount.currency %>"></script>
+          <div class="striped-border">
           </div>
-        </div>
-        <% end %>
 
+          <div class="invoice">
+            <table class="highlight">
+              <thead>
+                <tr>
+                  <th> QTY </th>
+                  <th> ITEM </th>
+                  <th class="right-align">PRICE</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><%= @order.number_of_bags %></td>
+                  <td>Bags</td>
+                  <td class="right-align"><%= @order.amount %></td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+          <article>
+
+            <label class="amount">
+              <span>Total amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+            </label>
+
+          </article>
+          <div style="margin-left: 100px; margin-top: 20px;">
+            <div style="width: 140px;">
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="Lavy"
+              data-email="<%= current_user.email %>"
+              data-description="Lavy order #: <%= @order.id %>"
+              data-amount="<%= @order.amount_cents %>"
+              data-currency="<%= @order.amount.currency %>"></script>
+            </div>
+          </div>
+          <% end %>
+
+        </div>
       </div>
     </div>
   </div>
