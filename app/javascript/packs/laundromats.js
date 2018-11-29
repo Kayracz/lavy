@@ -7,7 +7,7 @@ const handleShow = reviews => {
 
 const showReviews = reviews => `
   ${reviews.reverse().slice(0, 5).map(review => `
-    <p><i>${review.description}</i></p>
+    <p><i>"${review.description}"</i></p>
     ${`<span class="fa fa-star checked"></span>`.repeat(review.stars)}
     ${`<span class="fa fa-star"></span>`.repeat(5 - review.stars)}
   `)}
@@ -16,11 +16,10 @@ const showReviews = reviews => `
 const fillModal = laundromat_id => {
   const laundromatNode = document.getElementById(`laundromat-node-${laundromat_id}`)
   const laundromatReviews = JSON.parse(laundromatNode.dataset.reviews)
-  console.log(laundromatNode)
   handleShow(laundromatReviews)
 }
 
-const btnsReviews = document.querySelectorAll('.btn-reviews')
+const btnsReviews = document.querySelectorAll('.show-reviews')
 
 btnsReviews.forEach(btn => {
   btn.addEventListener('click', (e) => {
