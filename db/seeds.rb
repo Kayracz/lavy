@@ -72,8 +72,8 @@ Orders_a = ["Av. Federico Lacroze 2239, Buenos Aires", "Av. Elcano 3288, Buenos 
 Order_lat = [-34.5682233, -34.5740684]
 Order_lng = [-58.4434002, -58.4595863]
 
-Order_addresses = []
-end
+# Order_addresses = []
+# end
 
 Laundromat.all.each_with_index do |laundromat, i|
   2.times do  |j|
