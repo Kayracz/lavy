@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
-
-  <title> Lavy - <%= content_for?(:title) ? yield(:title) : 'Laundry, Pick up & delivery, Buenos Aires.' %> </title>
+  <title> Lavy - <%= content_for?(:title) ? yield(:title) : 'Laundry, pick up & delivery, Buenos Aires.' %> </title>
+  <meta property="og:title" content="Laundry, pick up & delivery. | Buenos Aires." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.lavy.icu/" />
+  <meta property="og:image" content="https://res.cloudinary.com/deruwllkv/image/upload/v1543507367/igf6xdwrgmicvhksckur.png" />
+  <meta property="og:description" content="Lavy is here to simplify your life. | Pick up and Delivery. | Outsource your laundry. " />
+  <meta property="og:site_name" content="Lavy" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Laundry, pick up & delivery. | Buenos Aires.">
+  <meta name="twitter:description" content="Lavy is here to simplify your life. | Pick up and Delivery. | Outsource your laundry. ">
+  <meta name="twitter:image:src" content="https://res.cloudinary.com/deruwllkv/image/upload/v1543507367/igf6xdwrgmicvhksckur.png">
   <%= favicon_link_tag asset_path('favicon.ico') %>
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
