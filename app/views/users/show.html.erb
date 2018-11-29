@@ -1,7 +1,7 @@
 <!-- <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p> -->
 
-<div class="wrapper">
+<div class="wrapper height-control">
 
   <div class="container">
     <div class="title2">
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <% if @user.orders.length > 0 %>
+<!--   <% if @user.orders.length > 0 %>
   <div class="container">
     <div class="title2">
       <h2>My orders</h2>
@@ -71,7 +71,108 @@
     </table>
   </div>
 </div>
-<% end  %>
+<% end  %> -->
+
+
+
+<div class="container">  <!-- container is a boostrap class -->
+  <div class="row">
+  <div class="row">
+    <% @user.orders.each_with_index do |order, index| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card rounding-dashboard" id="cancel-<%= order.id %>" style="background-image: linear-gradient(rgba(0,60,60,0.8), rgba(0,0,0,0.1)), url(<%= image_path('laundry1.jpg') %>);">
+          <div class="card-description-dashboard">
+            <h2>Order #<%= index + 1 %></h2>
+            <p><strong>Price (ARS): <%=(order.number_of_bags)*(order.laundromat.price_cents)/100%> </strong></p>
+            <p><strong>Status: <span class="order_status"><%= order.status %></span></strong></p>
+          </div>
+          <!-- <a class="btn btn-primary btn-lg" href="/cocktails/1">Recipe</a> -->
+                    <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalDashboard-<%= order.id %>">
+            Details
+          </button>
+          <%= link_to "Cancel", order_path(order),
+          method: :delete, remote: true, class: "color-link-dashboard",
+          data: { confirm: "Are you sure?" } %>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModalDashboard-<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Order details</h4>
+                </div>
+                <div class="modal-body">
+                  <p><strong>Laundromat:</strong> <%= order.laundromat.name %></p>
+                  <p><strong>Laundromat phone:</strong> <%= order.laundromat.phone_number %></p>
+                  <p><strong>Number of bags:</strong> <%= order.number_of_bags %></p>
+                  <p><strong>Total price (ARS):</strong> <%= (order.number_of_bags)*(order.laundromat.price_cents)/100 %></p>
+                  <p><strong>Pick up time:</strong> <%= order.pick_up_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
+                  <p><strong>Delivery time:</strong> <%= order.delivery_time.strftime("%A, %d %b %Y %l:%M %p") %></p>
+                  <p><strong>Address:</strong> <%= order.address %></p>
+                  <p><strong>Status:</strong> <%= order.status %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="container">
+  <div class="row">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(/assets/cocktail-426a9172478526b07cd03b55e602a20946c55735f57567cd146374da907146dd.jpg );">
+          <div class="card-description">
+            <h2>Caipirinia</h2>
+          </div>
+          <a class="btn btn-primary btn-lg" href="/cocktails/1">Recipe</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(/assets/cocktail-426a9172478526b07cd03b55e602a20946c55735f57567cd146374da907146dd.jpg );">
+          <div class="card-description">
+            <h2>LiveCode Drink</h2>
+          </div>
+          <a class="btn btn-primary btn-lg" href="/cocktails/5">Recipe</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(/assets/cocktail-426a9172478526b07cd03b55e602a20946c55735f57567cd146374da907146dd.jpg );">
+          <div class="card-description">
+            <h2>Bob Marley</h2>
+          </div>
+          <a class="btn btn-primary btn-lg" href="/cocktails/9">Recipe</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(/assets/cocktail-426a9172478526b07cd03b55e602a20946c55735f57567cd146374da907146dd.jpg );">
+          <div class="card-description">
+            <h2>Superman</h2>
+          </div>
+          <a class="btn btn-primary btn-lg" href="/cocktails/16">Recipe</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(/assets/cocktail-426a9172478526b07cd03b55e602a20946c55735f57567cd146374da907146dd.jpg );">
+          <div class="card-description">
+            <h2>SomethingintheWater</h2>
+          </div>
+          <a class="btn btn-primary btn-lg" href="/cocktails/17">Recipe</a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div> -->
+
+
 
 
 <% if @user.role == true %>
