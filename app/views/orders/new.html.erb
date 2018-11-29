@@ -1,27 +1,32 @@
 <!-- Navbar -->
 
+<div id="confirmation-back">
+  <p></p>
+</div>
 
-<h1 class="text-center datepicker-title">Schedule A Pick Up</h1>
+<div id="confirmation-holder">
+
+  <h1 class="text-center datepicker-title">Schedule A Pick Up</h1>
 
 
-<div class="container">
-  <div class="row">
+  <div class="">
+    <div class="row">
     <%= simple_form_for [@laundromat, @order] do |f| %>
 
-    <div class="col-xs-12">
-      <div class="addresspicker">
-        <h2>Choose an address for your pickup and delivery</h2>
-        <%= f.input :address, label: false, input_html: { class: 'algolia-fields' } %>
+      <div class="col-xs-12">
+        <div class="addresspicker">
+          <h2>Choose an address for your pickup and delivery</h2>
+          <%= f.input :address, label: false, input_html: { class: 'algolia-fields' } %>
+        </div>
       </div>
-    </div>
 
-    <!-- FIRST ELEMENT DATE -->
-    <div class="col-xs-12 col-md-6">
-      <div class="datepicker-holder">
-        <h2>Choose the date of your pickup</h2>
-        <%= f.input :pick_up_time, as: :string, label: false, input_html: {class: "datepicker datechoose", placeholder: "?"} %>
+      <!-- FIRST ELEMENT DATE -->
+      <div class="col-xs-12 col-md-6">
+        <div class="datepicker-holder">
+          <h2>Choose the date of your pickup</h2>
+          <%= f.input :pick_up_time, as: :string, label: false, input_html: {class: "datepicker datechoose", placeholder: "?"} %>
+        </div>
       </div>
-    </div>
 
       <!-- FIRST ELEMENT TIME -->
       <div class="col-xs-12 col-md-6">
@@ -46,81 +51,82 @@
         </div>
       </div>
 
-    <!-- SECOND ELEMENT DATE -->
-    <div class="col-xs-12 col-md-6">
-      <div class="datepicker-holder">
-        <h2>Choose the delivery date</h2>
-        <%= f.input :delivery_time, as: :string, label: false, input_html: {class: "datepicker datechoose", placeholder: "?"} %>
-      </div>
-    </div>
-
-    <!-- SECOND ELEMENT TIME -->
-    <div class="col-xs-12 col-md-6">
-      <div class="timepicker-holder">
-        <h2>Delivery time</h2>
-        <div>
-          <select name="order[delivery_time_hs]" id="order_delivery_time_hs" class="custom-select bag-title bag-choose">
-            <option value="10:00">&#160;&#160;10:00</option>
-            <option value="11:00">&#160;&#160;11:00</option>
-            <option value="12:00">&#160;&#160;12:00</option>
-            <option value="13:00">&#160;&#160;13:00</option>
-            <option value="14:00">&#160;&#160;14:00</option>
-            <option value="15:00">&#160;&#160;15:00</option>
-            <option value="16:00">&#160;&#160;16:00</option>
-            <option value="17:00">&#160;&#160;17:00</option>
-            <option value="18:00">&#160;&#160;18:00</option>
-            <option value="19:00">&#160;&#160;19:00</option>
-            <option value="20:00">&#160;&#160;20:00</option>
-            <option value="21:00">&#160;&#160;21:00</option>
-            <option value="22:00">&#160;&#160;22:00</option>
-            <option value="23:00">&#160;&#160;23:00</option>
-            <option value="24:00">&#160;&#160;24:00</option>
-          </select>
+      <!-- SECOND ELEMENT DATE -->
+      <div class="col-xs-12 col-md-6">
+        <div class="datepicker-holder">
+          <h2>Choose the delivery date</h2>
+          <%= f.input :delivery_time, as: :string, label: false, input_html: {class: "datepicker datechoose", placeholder: "?"} %>
         </div>
       </div>
-    </div>
 
-    <!-- THIRD ELEMENT -->
-    <div class="col-xs-12 col-md-6">
-      <div class="service-holder">
-        <h2>Services</h2>
-        <div class="btn-group btn-group-toggle services-options" data-toggle="buttons">
-          <input type="hidden" name="order[service_type][]" value="" />
-          <label class="btn btn-secondary service-icons" for="order_service_type_true">
-            <input type="checkbox" value="WashFold" name="order[service_type][]" id="order_service_type_washfold" >
-            <p><i class="fab fa-500px"></i> Wash & Fold</p>
-          </label>
-          <label class="btn btn-secondary service-icons" for="order_service_type_drycleaning">
-            <input type="checkbox" value="DryCleaning" name="order[service_type][]" id="order_service_type_drycleaning" >
-            <p><i class="fab fa-500px"></i> Dry Cleaning</p>
-          </label>
-          <label class="btn btn-secondary service-icons" for="order_service_type_hangdry">
-            <input  type="checkbox" value="HandDry" name="order[service_type][]" id="order_service_type_hangdry" >
-            <p><i class="fab fa-500px"></i>Hang & Dry</p>
-          </label>
+      <!-- SECOND ELEMENT TIME -->
+      <div class="col-xs-12 col-md-6">
+        <div class="timepicker-holder">
+          <h2>Delivery time</h2>
+          <div>
+            <select name="order[delivery_time_hs]" id="order_delivery_time_hs" class="custom-select bag-title bag-choose">
+              <option value="10:00">&#160;&#160;10:00</option>
+              <option value="11:00">&#160;&#160;11:00</option>
+              <option value="12:00">&#160;&#160;12:00</option>
+              <option value="13:00">&#160;&#160;13:00</option>
+              <option value="14:00">&#160;&#160;14:00</option>
+              <option value="15:00">&#160;&#160;15:00</option>
+              <option value="16:00">&#160;&#160;16:00</option>
+              <option value="17:00">&#160;&#160;17:00</option>
+              <option value="18:00">&#160;&#160;18:00</option>
+              <option value="19:00">&#160;&#160;19:00</option>
+              <option value="20:00">&#160;&#160;20:00</option>
+              <option value="21:00">&#160;&#160;21:00</option>
+              <option value="22:00">&#160;&#160;22:00</option>
+              <option value="23:00">&#160;&#160;23:00</option>
+              <option value="24:00">&#160;&#160;24:00</option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- FOURTH ELEMENT -->
-    <div class="col-xs-12 col-md-6">
-      <div class="bag-holder">
-        <h2>Bags</h2>
-        <div>
-          <select name="order[number_of_bags]" id="order_number_of_bags" class="custom-select bag-title bag-choose">
-            <% 5.times do |number_of_bags| %>
+      <!-- THIRD ELEMENT -->
+      <div class="col-xs-12 col-md-6">
+        <div class="service-holder">
+          <h2>Services</h2>
+          <div class="btn-group btn-group-toggle services-options" data-toggle="buttons">
+            <input type="hidden" name="order[service_type][]" value="" />
+            <label class="btn btn-secondary service-icons" for="order_service_type_true">
+              <input type="checkbox" value="WashFold" name="order[service_type][]" id="order_service_type_washfold" >
+              <p><i class="fab fa-500px"></i> Wash & Fold</p>
+            </label>
+            <label class="btn btn-secondary service-icons border-adjust" for="order_service_type_drycleaning">
+              <input type="checkbox" value="DryCleaning" name="order[service_type][]" id="order_service_type_drycleaning" >
+              <p><i class="fab fa-500px"></i> Dry Cleaning</p>
+            </label>
+            <label class="btn btn-secondary service-icons border-adjust" for="order_service_type_hangdry">
+              <input  type="checkbox" value="HandDry" name="order[service_type][]" id="order_service_type_hangdry" >
+              <p><i class="fab fa-500px"></i>Hang & Dry</p>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOURTH ELEMENT -->
+      <div class="col-xs-12 col-md-6">
+        <div class="bag-holder">
+          <h2>Bags</h2>
+          <div>
+            <select name="order[number_of_bags]" id="order_number_of_bags" class="custom-select bag-title bag-choose">
+              <% 5.times do |number_of_bags| %>
               <option value="<%= number_of_bags + 1 %>">&#160;&#160;&#160;&#160;&#160;&#160;<%= number_of_bags + 1 %></option>
-            <% end %>
-          </select>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 submit-holder">
+        <div class="button submit-order">
+          <%= f.submit "Continue", class:"btn btn-primary btn-lg" %>
         </div>
       </div>
     </div>
-
-    <div class="col-xs-12 submit-holder">
-      <div class="button submit-order">
-        <%= f.submit "Continue", class:"btn btn-primary btn-lg" %>
-      </div>
-    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

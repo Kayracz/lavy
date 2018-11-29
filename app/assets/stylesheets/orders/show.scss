@@ -128,9 +128,9 @@
 /* ANIMATIONS */
 
 .x1 {
-  -webkit-animation: animateBubble 4s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -webkit-animation: animateBubble 5s linear infinite, sideWays 2s ease-in-out infinite alternate;
   -moz-animation: animateBubble 4s linear infinite, sideWays 2s ease-in-out infinite alternate;
-  animation: animateBubble 4s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  animation: animateBubble 5s linear infinite, sideWays 2s ease-in-out infinite alternate;
 
   left: -5%;
   top: 5%;
@@ -155,7 +155,7 @@
 
 .x3 {
   -webkit-animation: animateBubble 5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-  -moz-animation: animateBubble 10s linear infinite, sideWays 2s ease-in-out infinite alternate;
+  -moz-animation: animateBubble 5s linear infinite, sideWays 2s ease-in-out infinite alternate;
   animation: animateBubble 5s linear infinite, sideWays 2s ease-in-out infinite alternate;
 
   left: 10%;

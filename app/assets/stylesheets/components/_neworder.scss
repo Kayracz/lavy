@@ -51,7 +51,7 @@
   font-family: Raleway;
   font-weight: bold;
   align-items: center;
-  font-size: 90px;
+  font-size: 50px !important;
   line-height: 141px;
 }
 
@@ -105,7 +105,7 @@
 .service-holder {
   h2 {
     margin-top: 0px;
-    font-size: 30px;
+    font-size: 22px;
   }
   display: flex;
   justify-content: space-between;
@@ -115,7 +115,7 @@
 .timepicker-holder {
  h2 {
   margin-top: 0px;
-  font-size: 30px;
+  font-size: 22px;
   display: flex;
   justify-content: space-between;
   width: 40%;
