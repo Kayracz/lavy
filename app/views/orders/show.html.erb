@@ -1,113 +1,115 @@
 <div id="background-wrap">
-    <div class="bubbl x1"></div>
-    <div class="bubbl x2"></div>
-    <div class="bubbl x3"></div>
-    <div class="bubbl x4"></div>
-    <div class="bubbl x5"></div>
-    <div class="bubbl x6"></div>
-    <div class="bubbl x7"></div>
-    <div class="bubbl x8"></div>
-    <div class="bubbl x9"></div>
-    <div class="bubbl x10"></div>
+  <div class="bubbl x1"></div>
+  <div class="bubbl x2"></div>
+  <div class="bubbl x3"></div>
+  <div class="bubbl x4"></div>
+  <div class="bubbl x5"></div>
+  <div class="bubbl x6"></div>
+  <div class="bubbl x7"></div>
+  <div class="bubbl x8"></div>
+  <div class="bubbl x9"></div>
+  <div class="bubbl x10"></div>
+</div>
+
+  <div class="container confirmation1">
+    <h1 class="lavy-color">Order confirmation</h1>
+
+    <div class="confirmation-block1">
+      <div class="number-round1">1</div>
+      <p>Details</p>
+      <div class="message1">
+        <div class="message-body1">
+          <table>
+            <tr>
+              <td><strong>Name:</strong></td>
+              <td><%= @order.user.name %></td>
+            </tr>
+            <tr>
+              <td><strong>Reservation:</strong></td>
+              <td><%= @order.id %></td>
+            </tr>
+            <tr>
+              <td><strong>Amount:</strong></td>
+              <td><%= humanized_money_with_symbol(@order.amount) %></td>
+            </tr>
+            <tr>
+              <td><strong>Bags:</strong></td>
+              <td><%= @order.number_of_bags %></td>
+            </tr>
+          </table>
+        </div>
+        <%= image_tag("confirm-icon.png", size: "100x100") %>
+      </div>
+    </div>
+    <div class="confirmation-block1">
+      <div class="number-round1">2</div>
+      <p> Pick up</p>
+      <div class="message1">
+        <div class="message-body1">
+          <table>
+            <tr>
+              <td><strong>Date:</strong></td>
+              <td><%= @order.pick_up_time.strftime("%D") %></td>
+            </tr>
+            <tr>
+              <td><strong>Hour:</strong></td>
+              <td><%= @order.pick_up_time.strftime("%H:%M") %></td>
+            </tr>
+            <tr>
+              <td><strong>Location:</strong></td>
+              <td><%= @order.address %></td>
+            </tr>
+          </table>
+        </div>
+        <%= image_tag("basket.png", size: "80x80") %>
+      </div>
+    </div>
+    <div class="confirmation-block1">
+      <div class="number-round1">3</div>
+      <p>Service</p>
+      <div class="message1">
+        <div class="message-body1">
+          <table>
+            <tr>
+              <td><strong>Wash / Press</strong></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <%= image_tag("clean.png", size: "80x80") %>
+      </div>
+    </div>
+    <div class="confirmation-block1">
+      <div class="number-round1">4</div>
+      <p>Delivery</p>
+      <div class="message1">
+        <div class="message-body1">
+          <table>
+            <tr>
+              <td><strong>Date:</strong></td>
+              <td><%= @order.delivery_time.strftime("%D") %></td>
+            </tr>
+            <tr>
+              <td><strong>Hour:</strong></td>
+              <td><%= @order.delivery_time.strftime("%H:%M") %></td>
+            </tr>
+            <tr>
+              <td><strong>Location:</strong></td>
+              <td><%= @order.address %></td>
+            </tr>
+          </table>
+        </div>
+        <%= image_tag("shirtclock.png", size: "100x100") %>
+      </div>
+    </div>
+
+    <div class="button submit-order">
+      <%= link_to "Dashboard", dashboard_path, class: "btn btn-primary btn-lg"%>
+    </div>
+  </div>
 </div>
 
 
-<div class="container confirmation1">
-  <h1 class="lavy-color">Order confirmation</h1>
-
-  <div class="confirmation-block1">
-    <div class="number-round1">1</div>
-    <p>Details</p>
-    <div class="message1">
-    <div class="message-body1">
-      <table>
-        <tr>
-          <td><strong>Name:</strong></td>
-          <td><%= @order.user.name %></td>
-        </tr>
-        <tr>
-          <td><strong>Reservation:</strong></td>
-          <td><%= @order.id %></td>
-        </tr>
-        <tr>
-          <td><strong>Amount:</strong></td>
-          <td><%= humanized_money_with_symbol(@order.amount) %></td>
-        </tr>
-        <tr>
-          <td><strong>Bags:</strong></td>
-          <td><%= @order.number_of_bags %></td>
-        </tr>
-      </table>
-    </div>
-    <%= image_tag("confirm-icon.png", size: "100x100") %>
-  </div>
-  </div>
-  <div class="confirmation-block1">
-    <div class="number-round1">2</div>
-    <p> Pick up</p>
-    <div class="message1">
-    <div class="message-body1">
-      <table>
-        <tr>
-          <td><strong>Date:</strong></td>
-          <td><%= @order.pick_up_time.strftime("%D") %></td>
-        </tr>
-        <tr>
-          <td><strong>Hour:</strong></td>
-          <td><%= @order.pick_up_time.strftime("%H:%M") %></td>
-        </tr>
-        <tr>
-          <td><strong>Location:</strong></td>
-          <td><%= @order.address %></td>
-        </tr>
-      </table>
-    </div>
-    <%= image_tag("basket.png", size: "80x80") %>
-  </div>
-  </div>
-  <div class="confirmation-block1">
-    <div class="number-round1">3</div>
-    <p>Service</p>
-    <div class="message1">
-    <div class="message-body1">
-      <table>
-        <tr>
-          <td><strong>Wash / Press</strong></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
-    <%= image_tag("clean.png", size: "80x80") %>
-  </div>
-  </div>
-  <div class="confirmation-block1">
-    <div class="number-round1">4</div>
-    <p>Delivery</p>
-    <div class="message1">
-    <div class="message-body1">
-      <table>
-        <tr>
-          <td><strong>Date:</strong></td>
-          <td><%= @order.delivery_time.strftime("%D") %></td>
-        </tr>
-        <tr>
-          <td><strong>Hour:</strong></td>
-          <td><%= @order.delivery_time.strftime("%H:%M") %></td>
-        </tr>
-        <tr>
-          <td><strong>Location:</strong></td>
-          <td><%= @order.address %></td>
-        </tr>
-      </table>
-    </div>
-    <%= image_tag("shirtclock.png", size: "100x100") %>
-  </div>
-  </div>
-
-  <div class="button submit-order">
-    <%= link_to "Dashboard", dashboard_path, class: "btn btn-primary btn-lg"%>
-  </div>
-</div>
 
 
 

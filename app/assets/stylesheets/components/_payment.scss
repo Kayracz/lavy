@@ -6,9 +6,9 @@
 
 .pay{
   .ticket {
-    border: 1px solid #04444B;
+    font-family: Monospace;
+    border: 0px solid #04444B;
     padding: 2em;
-    border-radius: 3px;
     box-shadow: 7px 13px 7px !important;
     background: white;
     display: flex;
@@ -28,53 +28,56 @@
     -moz-transition: 1s all ease-in-out;
     margin: 3em auto;
 
-  h1{
-    font-size: 35px;
-    color:#005C66;
-    font-style: lighter;
-  }
+    h1{
+      font-size: 33px;
+      color:#005C66;
+      font-style: lighter;
+      font-family: Monospace;
+    }
 
-  th{
-    padding-right: 29px;
-  }
+    th{
+      padding-right: 29px;
+    }
 
-  span{
-    padding-right: 29px;
-  }
+    span{
+      padding-right: 29px;
+    }
 
-  h5{
-    color:gray;
-    font-weight: bold;
-  }
+    h5{
+      font-weight: bold;
+      font-family: Monospace;
+    }
 
-  .invoice-info{
-    color:gray;
-    font-weight: bold;
-  }
-
-
-  .striped-border {
-    border: 1px dashed gray;
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
-
-  p{
-    color:gray;
-    font-weight: lighter;
-  }
-
-  td {
-    color:gray;
-  }
+    .invoice-info{
+      color:gray;
+      font-weight: bold;
+      font-family: Monospace;
+    }
 
 
+    .striped-border {
+      border: 1px dashed gray;
+      margin: auto;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
 
-  background: white;
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
+    p{
+      color: black;
+      font-weight: lighter;
+      font-family: Monospace;
+    }
+
+    td {
+      color:black;
+    }
+
+
+
+    background: white;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
   // position: absolute;
   /*     top: 50%; */
   left: 50%;
@@ -111,8 +114,9 @@ table td:nth-child(3) {
 
 
 .help {
- color: gray !important;
+ color: black !important;
  font-style: italic;
+ font-size: 16px;
 
 }
 
