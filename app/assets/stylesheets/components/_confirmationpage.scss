@@ -1,0 +1,69 @@
+#confirmation-holder {
+  margin-top: 0;
+  padding: 40px 30px;
+  margin-top: -150px;
+  background-color: white;
+  width: 80%;
+  border-radius: 5px;
+  margin-bottom: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.order-wrapper-content {
+  padding: 10px 0px;
+  padding-left: 10px;
+}
+
+#order-confirmation-title-h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #005c66;
+  margin:0;
+  padding-bottom: 15px;
+}
+
+#dashboard-redirect {
+  padding-top: 30px;
+}
+
+#confirmation-back {
+  margin-top: -12px;
+  background-color: #005C66;
+  height: 225px;
+}
+
+.order-title-confirmation {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.order-details-label {
+  font-weight: normal;
+  font-size: 15px;
+  padding-left: 30px;
+}
+
+.order-details-info {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 15px;
+  padding-left: 8px;
+}
+
+.scan{
+ display:flex;
+ justify-content: center;
+ padding-top: 20px;
+}
+
+.scanimage{
+  height:350px;
+  width:auto;
+}
+
+@media only screen and (max-width: 600px) {
+#order-confirmation-title-h1 {
+  text-align: center;
+}
+}
