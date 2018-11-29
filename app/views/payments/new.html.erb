@@ -4,7 +4,7 @@
     <div class="ticket" style="min-height: 100vh;background-image: url('<%= image_path '7544.jpg' %>');">
 
       <h1>Invoice<!--  <%= @order.laundromat.name %> </h1> -->
-      <h5> Order N# <%= @order.id %></h5>
+      <h5> Invoice N# <%= @order.id %></h5>
       <%= form_tag order_payments_path(@order) do %>
 
 
