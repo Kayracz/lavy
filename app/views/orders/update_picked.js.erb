@@ -5,13 +5,13 @@ document.getElementById("picked_up-<%= @order.id %>").remove();
 var orderToUpdate = document.querySelector("#cancel-<%= @order.id %> .order_status")
 
 if (orderToUpdate) {
-  orderToUpdate.innerText = 'picked up'
+  orderToUpdate.innerText = 'Picked up'
 }
 
 var deliveryToUpdate = document.querySelector("#delivered-<%= @order.id %> .order_status")
 
 if (deliveryToUpdate) {
-  deliveryToUpdate.innerText = 'picked up'
+  deliveryToUpdate.innerText = 'Picked up'
 }
 
 
