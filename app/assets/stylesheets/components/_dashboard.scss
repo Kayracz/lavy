@@ -55,6 +55,7 @@
 
 .un{
   text-align:center;
+  margin-top: 80px;
 }
 .table1{
   font-size: 12px;
@@ -66,4 +67,27 @@
   font-style: bold;
 }
 
+.card-description-dashboard {
+  color: white;
+  text-align: center;
+}
+
+.rounding-dashboard {
+  border-radius: 5%;
+}
+
+.color-link-dashboard {
+  color: white;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.color-link-dashboard:hover {
+  color: orange;
+  font-weight: bold
+}
+
+.height-control {
+  min-height: calc(100vh - 140px)
+}
 
