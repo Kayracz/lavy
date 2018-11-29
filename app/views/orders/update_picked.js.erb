@@ -1,3 +1,18 @@
-console.log("Hello")
+console.log("Hello from picked up")
 
 document.getElementById("picked_up-<%= @order.id %>").remove();
+
+var orderToUpdate = document.querySelector("#cancel-<%= @order.id %> .order_status")
+
+if (orderToUpdate) {
+  orderToUpdate.innerText = 'picked up'
+}
+
+var deliveryToUpdate = document.querySelector("#delivered-<%= @order.id %> .order_status")
+
+if (deliveryToUpdate) {
+  deliveryToUpdate.innerText = 'picked up'
+}
+
+
+
