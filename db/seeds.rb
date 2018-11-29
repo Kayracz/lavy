@@ -37,7 +37,8 @@ password: "123456",
 name: "Daniel Hernandez",
 phone_number: "+011 0432-4240",
 role: true,
-address: Laundromat_addresses[-1]
+address: Laundromat_addresses[-1],
+remote_photo_url: "https://res.cloudinary.com/deruwllkv/image/upload/v1543522468/cjs1ougtmuolpxj0fyzv.jpg"
 }
 
 jack = {
