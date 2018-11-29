@@ -38,28 +38,30 @@
           </div>
           <!-- <a class="btn btn-primary btn-lg" href="/cocktails/1">Recipe</a> -->
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalDashboard-<%= order.id %>">
+          <div class=card-buttons-dashboard>
+          <button type="button" class="btn btn-primary btn-lg details-dashboard" data-toggle="modal" data-target="#myModalDashboard-<%= order.id %>">
             Details
           </button>
           <% if order.status == "delivered" && order.reviews.empty? %>
 
             <br><%#= link_to "Write a review", new_order_review_path(order) %>
 
-            <span id="<%= order.id %>" class="btn-reviews new-reviews color-link-dashboard" data-toggle="modal" data-target="#newReview">
+            <span id="<%= order.id %>" class="btn-reviews new-reviews link-dashboard-review" data-toggle="modal" data-target="#newReview">
 
-              Write a Review
+              Review
 
             </span>
 
           <% elsif order.status == "delivered" && order.reviews.empty? == false %>
           <%= link_to "Remove", update_removed_path(order, status: 'removed'),
-          method: :patch, remote: true, class: "color-link-dashboard",
+          method: :patch, remote: true, class: "link-dashboard btn-primary btn btn-lg",
           data: { confirm: "Are you sure?" } %>
           <% else %>
           <%= link_to "Cancel", order_path(order),
-          method: :delete, remote: true, class: "color-link-dashboard",
+          method: :delete, remote: true, class: "link-dashboard btn-primary btn btn-lg",
           data: { confirm: "Are you sure?" } %>
           <% end %>
+          </div>
 
           <!-- Modal -->
           <div class="modal fade" id="myModalDashboard-<%= order.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
