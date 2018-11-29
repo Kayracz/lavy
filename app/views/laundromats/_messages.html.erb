@@ -3,11 +3,14 @@
 <div class="message-container">
 
   <% if laundromats.empty? %>
+  <div class="empty-message">
 
-  <h2>Sorry, we don't have laundromats on this area.</h2>
-  <h4><%= link_to "These are laundromats we work with!", laundromats_path(laundromat: {address: "Buenos Aires"}) %><h4>
 
-    <% end %>
+     <h2>Sorry, we don't have laundromats on this area.</h2>
+   <h4><%= link_to "These are laundromats we work with!", laundromats_path(laundromat: {address: "Buenos Aires"}) %><h4>
+</div>
+  <% end %>
+
 
     <!--Ribbon -->
 
@@ -16,7 +19,9 @@
 
         <div class="tutorial-card">
           <div class="tutorial-category-ribbon tutorial-category-ribbon-small ribbon-left ribbon-left-javascript" style="background-color: #005C66">
-            <span>Premium deal</span>
+            <% unless laundromats.empty? %>
+              <span>Premium deal</span>
+            <% end %>
             <div class="tutorial-content">
             </div>
           </div>
@@ -24,8 +29,8 @@
       </div>
 
 
+          <% laundromats.each do |laundromat| %>
 
-      <% laundromats.each do |laundromat| %>
 
       <%= tag("span", id: "laundromat-node-#{laundromat.id}", data: { reviews: laundromat.reviews }) %>
 
@@ -56,7 +61,7 @@
 
               <p></p>
             </div>
-            <span id="<%= laundromat.id %>" class="btn-reviews" data-toggle="modal" data-target="#reviewsModal">
+            <span id="<%= laundromat.id %>" class="btn-reviews show-reviews" data-toggle="modal" data-target="#reviewsModal">
               Reviews
             </span>
             <div class="message-name">
@@ -76,7 +81,8 @@
                   <%= link_to 'Pick me!', new_laundromat_order_path(laundromat), class: "btn btn-primary btn-xs lavy-color", style: "border-radius: 2px; padding: 6px 45px;" %>
                 </div>
               </div>
-            </div>
+              </div>
             <% end %>
           </div>
+     </div>
 

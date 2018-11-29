@@ -33,6 +33,10 @@ class OrderPolicy < ApplicationPolicy
     record.delivery_guy == user
   end
 
+  def update_removed?
+    true
+  end
+
   def destroy?
     true
   end

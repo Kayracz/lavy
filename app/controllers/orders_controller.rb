@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :authenticate_user!, only: :new
   before_action :set_order, except: [:new, :create]
 
   def show
@@ -38,26 +39,31 @@ class OrdersController < ApplicationController
 
   def update_picked
     @order.update(status: params[:status])
-   # redirect_to dashboard_path # if this line were active the ajax wouldnt work, because it would force the HTML
+    # redirect_to dashboard_path # if this line were active the ajax wouldnt work, because it would force the HTML
 
-      respond_to do |format|
-        format.html { redirect_to dashboard_path }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
-      end
-
-
-
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.js # <-- will render `app/views/orders/update_picked.js.erb`
+    end
   end
 
   def update_delivered
     @order.update(status: params[:status])
-   # redirect_to dashboard_path
+    # redirect_to dashboard_path
 
-      respond_to do |format|
-        format.html { redirect_to dashboard_path }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
-      end
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.js # <-- will render `app/views/reviews/create.js.erb`
+    end
+  end
 
+  def update_removed
+    @order.update(status: params[:status])
+
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.js # <-- will render `app/views/reviews/create.js.erb`
+    end
   end
 
   def destroy
