@@ -63,6 +63,7 @@
               <% end %>
             </li>
         <li><%= link_to "Register your Laundromat", new_laundromat_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+      <!--    <li><span class="navbar-wagon-item navbar-wagon-link">"Register your Laundromat"</span></li> -->
         <% if user_signed_in? %>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>

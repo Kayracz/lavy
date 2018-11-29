@@ -4,19 +4,19 @@ class LaundromatsController < ApplicationController
   def index
     # @laundromats = @laundromats.near(params[:laundromat][:address], 5) unless params[:laundromat][:address].empty?
     if params[:price_cents]
-      @laundromats = policy_scope(Laundromat).where("price_cents <= ?", params[:price_cents].to_i)
+      @laundromats = policy_scope(Laundromat).where("price_cents <= ?", params[:price_cents].to_i).reverse_order
     else
-      @laundromats = policy_scope(Laundromat)
+      @laundromats = policy_scope(Laundromat).reverse_order
     end
 
     if params[:distance]
-      @laundromats = @laundromats.near(Geocoder.coordinates(params[:address]), params[:distance].to_i)
+      @laundromats = @laundromats.near(Geocoder.coordinates(params[:address]), params[:distance].to_i).reverse_order
     else
       @laundromats
     end
 
     if params[:stars]
-      @laundromats = policy_scope(Laundromat).minimum_stars(params[:stars].to_i)
+      @laundromats = policy_scope(Laundromat).minimum_stars(params[:stars].to_i).reverse_order
     else
       @laundromats
     end
@@ -57,6 +57,6 @@ class LaundromatsController < ApplicationController
   private
 
   def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day, :price_cents, :stars)
+    params.require(:laundromat).permit(:name, :address, :phone_number, :bags_per_day, :price_cents, :stars, :photo)
   end
 end
