@@ -77,7 +77,12 @@
 //   margin-right: 10px;
 // }
 
-
+.btn-reviews{
+  font-size: 13px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
 .message:hover {
   z-index:2;
   background: #04444b14;
@@ -87,10 +92,12 @@
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
   color: #054A53;
+  font-size: 19px;
 
 }
 .message-body p {
   margin: 6px 0;
+
 }
 .message-status {
   font-size: 30px;
@@ -134,17 +141,16 @@
     }
   }
   .btn{
-    padding: 0px 15px 1px 16px;
-    border-color: lightgray;
-    font-size: 24px;
-    line-height: 1.33333;
-    border-radius: 2px;
-    font-color: #005C66;
-    margin: -55px -1px 13px -3px;
-    color: #005C66;
-    margin: -12px -2px 14px;
+   background-color: #04444B;
+   color: white;
+   font-size: 19px;
+   padding-top: 7px;
+   padding-bottom: 7px;
+   border-radius: 4px;
+   padding-left: 34px;
+   padding-right: 36px;
 
-  }
+ }
 
 }
 
@@ -156,6 +162,18 @@
   border-radius: 13px !important;
   font-size: 24px !important;
   color: #005C66;
+
+
+  input[type="submit"] {
+   background-color: #04444B;
+   color: white;
+   font-size: 19px;
+   padding-top: 7px;
+   padding-bottom: 7px;
+   padding-left: 30px;
+   padding-right: 30px;
+   border-radius: 4px;
+ }
 }
 
 
@@ -358,15 +376,6 @@
     margin-left: -140px ;
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 
