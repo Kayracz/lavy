@@ -96,11 +96,24 @@ end
 
 
 Order.all.each_with_index do |order, index|
-  review = Review.new(order: order,
-                      stars: 1+rand(5),
-                      description: REVIEW_DESCRIPTION.sample.take(2)
-                      )
-  review.save!
+
+    review1 = Review.new(
+      order: order,
+      stars: rand(1..5),
+      description: REVIEW_DESCRIPTION.sample
+    )
+
+  review1.save!
+
+  review2 = Review.new(
+    order: order,
+    stars: rand(1..5),
+    description: REVIEW_DESCRIPTION.sample
+  )
+
+  review2.save!
 end
+
+
 
 puts "Finished seeding process!"
