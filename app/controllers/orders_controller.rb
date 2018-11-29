@@ -88,7 +88,7 @@ class OrdersController < ApplicationController
       location_lat = -34.592742.to_f # La maquinita palermo soho coordinates
       location_lng = -58.430740.to_f
     # end
-    @location.longitude
+    # @location.longitude
     @markers = [{lng: @order.longitude, lat: @order.latitude, infoWindow: { content: render_to_string(partial: "/orders/map_window_client", locals: { order: @order }) }}, {lng: @order.laundromat.longitude, lat: @order.laundromat.latitude, infoWindow: { content: render_to_string(partial: "/orders/map_window_laundromat", locals: { order: @order }) }}, {lng: location_lng, lat: location_lat, infoWindow: { content: render_to_string(partial: "/orders/map_window_location", locals: { order: @order }) }}]
 
   end
